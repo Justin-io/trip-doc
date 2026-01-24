@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Visit Request Email</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+            padding: 40px;
+        }
+
+        .email-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e1e4e8;
+        }
+
+        .header {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0056b3;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .header-details {
+            font-size: 12px;
+            text-align: right;
+            color: #666;
+        }
+
+        .meta-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0056b3;
+            font-size: 14px;
+        }
+
+        .subject {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .content {
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #f1f3f5;
+            color: #495057;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e4e8;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .btn-copy {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-copy:hover {
+            background-color: #004494;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 0 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="btn-copy" onclick="copyToClipboard()">Copy Email Content to Clipboard</button>
+
+    <div class="email-container" id="email-content">
+        <div class="header">
+            <div class="header-logo">IES COLLEGE OF ENGINEERING</div>
+            <div class="header-details">
+                Department of Computer Science & Engineering<br>
+                (Data Science)<br>
+                Thrissur, Kerala
+            </div>
+        </div>
+
+        <div class="meta-info">
+            <strong>Subject:</strong> Request for permission to conduct an Industrial Visit at <span
+                class="highlight">[Industry Name]</span><br>
+            <strong>Date:</strong> 27th January 2026
+        </div>
+
+        <div class="content">
+            <p><strong>To,</strong><br>
+                The Manager / Officer In-Charge,<br>
+                <span class="highlight">[Industry Name, e.g., Kodaikanal Solar Observatory / Ramakkalmedu Wind
+                    Farm]</span>,<br>
+                <span class="highlight">[Location]</span>.
+            </p>
+
+            <p><strong>Respected Sir/Madam,</strong></p>
+
+            <p>Greetings from <strong>IES College of Engineering, Chittilappilly, Thrissur</strong>.</p>
+
+            <p>We are writing to express our keen interest in organizing an industrial visit to your esteemed
+                organization for our students. Our college, approved by AICTE and affiliated with A.P.J. Abdul Kalam
+                Technological University, is committed to providing our students with practical exposure alongside their
+                academic curriculum.</p>
+
+            <p>Our group consists of <strong>36 students</strong> from the <strong>4th Semester, B.Tech Computer Science
+                    and Engineering (Data Science)</strong> program, accompanied by <strong>2 faculty members</strong>.
+                We believe that visiting your facility would provide our students with invaluable insights into
+                real-world applications and the latest technological advancements in the field.</p>
+
+            <p>We plan to conduct this tour between <strong>30th January 2026</strong> and <strong>2nd February
+                    2026</strong>. We would be grateful if you could grant us permission to visit your campus on a
+                convenient date and time within this period.</p>
+
+            <p><strong>Summary of the Visiting Team:</strong></p>
+            <table class="data-table">
+                <tr>
+                    <th width="40%">Department</th>
+                    <td>Computer Science and Engineering (Data Science) - S4</td>
+                </tr>
+                <tr>
+                    <th>Total Students</th>
+                    <td>36 (23 Boys + 13 Girls)</td>
+                </tr>
+                <tr>
+                    <th>Faculty Members</th>
+                    <td>
+                        1. Ms. Jiji A J (Assistant Professor)<br>
+                        2. Mr. Nixon P (Lab Instructor)
+                    </td>
+                </tr>
+                <tr>
+                    <th>Total Count</th>
+                    <td>38 (Students + Staff)</td>
+                </tr>
+            </table>
+
+            <p>We assure you that our students will strictly adhere to the rules and regulations of your organization
+                during the visit. We have attached the detailed student list for your reference.</p>
+
+            <p>We look forward to a positive response.</p>
+
+            <div class="footer">
+                <p>Warm Regards,</p>
+                <p><strong>Principal / Head of Department</strong><br>
+                    IES College of Engineering<br>
+                    Chittilappilly P.O., Thrissur - 680551<br>
+                    Kerala, India<br>
+                    Phone: 0487 2309966<br>
+                    Email: mail@iesce.info</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const emailContent = document.getElementById('email-content').innerText;
+            navigator.clipboard.writeText(emailContent).then(() => {
+                alert('Email content copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
