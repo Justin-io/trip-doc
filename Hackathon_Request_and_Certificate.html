@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Permission Request & Bonafide Certificate</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            margin: 0;
+            background-color: #f0f0f0;
+            /* Grey background for screen view */
+        }
+
+        /* Page styling for print */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25.4mm;
+            /* 1 inch padding */
+            margin: 10mm auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                height: 100vh;
+                /* Ensure full height usage */
+                page-break-after: always;
+                /* Force page break after each .page */
+            }
+
+            .page:last-child {
+                page-break-after: auto;
+            }
+
+            /* Hide non-printable instructions if any */
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* Content Styling */
+        .header {
+            text-align: center;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 25px;
+            font-size: 14pt;
+            text-transform: uppercase;
+        }
+
+        .section {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .signatories {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        /* Certificate Specific Styles */
+        .cert-title {
+            font-size: 18pt;
+            margin-bottom: 30px;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .cert-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cert-college {
+            font-size: 22pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .cert-sub {
+            font-size: 10pt;
+            line-height: 1.3;
+        }
+
+        .divider {
+            border-bottom: 2px solid black;
+            margin: 10px 0 30px 0;
+        }
+
+        .details-box {
+            border: 1px solid #000;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .project-title {
+            font-size: 13pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .btn-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn-print no-print" onclick="window.print()">Print Document</button>
+
+    <!-- PAGE 1: PERMISSION REQUEST LETTER -->
+    <div class="page">
+        <div class="section">
+            <div class="bold">From,</div>
+            Harinandan K (112/DS/24)<br>
+            S4, Department of Data Science<br>
+            IES College of Engineering<br>
+            Chittilappilly, Thrissur<br>
+            Mob: 7510255646<br>
+            Email: harinandhan972@gmail.com
+        </div>
+
+        <div class="section">
+            <strong>Date:</strong> 28.01.2026
+        </div>
+
+        <div class="section">
+            <div class="bold">To,</div>
+            The Principal,<br>
+            IES College of Engineering,<br>
+            Chittilappilly, Thrissur.<br>
+            <span style="font-style: italic;">(Through The HOD, Department of Data Science)</span>
+        </div>
+
+        <div class="header">
+            Request for Permission to Participate in 'AI FOR ALL' Ideathon
+        </div>
+
+        <div class="section">
+            Respected Madam,
+        </div>
+
+        <div class="section">
+            I am writing to respectfully request your permission to participate in the <strong>'AI FOR ALL'
+                Ideathon</strong>, a prestigious pre-summit academic event organized by the <strong>Tata Centre for
+                Artificial Intelligence and Machine Learning</strong> at <strong>NIT Tiruchirappalli</strong> on
+            <strong>02 February 2026</strong>.
+        </div>
+
+        <div class="section">
+            I have registered as a sole team member under the team name <strong>"HOPE INT CORE"</strong>. My proposed
+            project, titled <strong>"AgriShield"</strong>, falls under the <strong>AI for Agriculture</strong> thrust
+            area.
+        </div>
+
+        <div class="section">
+            <strong>Project Abstract:</strong> The project addresses the "Reaction Time Crisis" in global agriculture.
+            <em>AgriShield</em> transforms agricultural defense from "Reactive" to "Autonomous & Proactive" by utilizing
+            AI and IoT to validate threats (like pests or climate shifts) and intervene immediately, removing the
+            latency of human reaction time.
+        </div>
+
+        <div class="section">
+            As part of the mandatory registration process (closing on 30-01-2026), I am required to upload a
+            <strong>Bonafide Certificate of Nomination</strong> signed by the Head of the Institution.
+        </div>
+
+        <div class="section">
+            I humbly request you to:
+            <ol>
+                <li>Grant me permission to participate in this event.</li>
+                <li>Issue the attached Bonafide Certificate of Nomination.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            I assure you that I will uphold the reputation of our institution and abide by all rules.
+        </div>
+
+        <div class="section">
+            Thanking you,
+        </div>
+
+        <div class="section">
+            Yours sincerely,
+        </div>
+
+        <br>
+
+        <div class="section">
+            <div class="bold">Harinandan K</div>
+            S4, Data Science
+        </div>
+
+        <div class="signatories">
+            <div class="center-text">
+                <br>
+                Recommended by:<br>
+                <strong>HOD</strong><br>
+                Dept. of Data Science
+            </div>
+            <div class="center-text">
+                <br>
+                Approved by:<br>
+                <strong>PRINCIPAL</strong>
+            </div>
+        </div>
+    </div>
+    <!-- END OF PAGE 1 -->
+
+    <!-- PAGE 2: BONAFIDE CERTIFICATE (For Signature & Upload) -->
+    <div class="page">
+        <div class="cert-header">
+            <div class="cert-college">IES COLLEGE OF ENGINEERING</div>
+            <div class="cert-sub">
+                (An Engineering College Promoted by the Ideal Educational Society)<br>
+                Approved by AICTE, New Delhi & Affiliated to A.P.J. Abdul Kalam Technological University<br>
+                Chittilappilly P.O., Thrissur - 680551, Kerala
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <strong>Date:</strong> 28.01.2026<br>
+            <strong>Place:</strong> Thrissur
+        </div>
+
+        <div class="cert-title">BONAFIDE CERTIFICATE OF NOMINATION</div>
+
+        <div class="section">
+            To,<br>
+            The Coordinator,<br>
+            <strong>'AI FOR ALL' Ideathon</strong>,<br>
+            Tata Centre for Artificial Intelligence and Machine Learning,<br>
+            NIT Tiruchirappalli - 620 015.
+        </div>
+
+        <div class="section">
+            <strong>Subject: Nomination of student for One Day Ideathon ‘AI FOR ALL’</strong>
+        </div>
+
+        <div class="section">
+            Respected Sir/Madam,
+        </div>
+
+        <div class="section">
+            This is to certify that <strong>Mr. Harinandan K</strong> (Admission No: 112/DS/24) is a bona fide student
+            of the <strong>Department of Data Science (Semester 4)</strong> at IES College of Engineering, Thrissur.
+        </div>
+
+        <div class="section">
+            He is hereby nominated to participate in the One Day Ideathon <strong>‘AI FOR ALL’</strong> scheduled to be
+            held on <strong>02 February 2026</strong> at NIT Tiruchirappalli.
+        </div>
+
+        <div class="details-box">
+            <div class="section">
+                <strong>Team Name:</strong> HOPE INT CORE
+            </div>
+            <div class="section">
+                <strong>Thrust Area:</strong> AI for Agriculture
+            </div>
+            <div class="section">
+                <strong>Project Title:</strong> AgriShield
+            </div>
+            <div class="section" style="font-size: 11pt; font-style: italic;">
+                "AgriShield uses AI and IoT to neutralize agricultural threats the moment they are mathematically
+                detectable, transforming defense from Reactive to Autonomous & Proactive."
+            </div>
+            <div class="section">
+                <strong>Team Member:</strong><br>
+                1. Harinandan K (Team Lead)
+            </div>
+        </div>
+
+        <div class="section">
+            This institution has no objection to his participation in the aforementioned event. We wish him all the best
+            for his endeavors.
+        </div>
+
+        <div class="signatories">
+            <div class="center-text">
+                ____________________<br>
+                <strong>HOD</strong><br>
+                Dept. of Data Science
+            </div>
+
+            <div class="center-text">
+                ____________________<br>
+                <strong>PRINCIPAL</strong><br>
+                IES College of Engineering
+            </div>
+        </div>
+    </div>
+    <!-- END OF PAGE 2 -->
+
+</body>
+
+</html>
