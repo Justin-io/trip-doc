@@ -4,96 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techfest Documents Index</title>
+    <title>Techfest Master Dashboard</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background-color: #f4f4f9;
-            margin: 0;
             padding: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
 
         .container {
             background-color: white;
             padding: 30px;
             border-radius: 12px;
+            max-width: 900px;
+            margin: 0 auto;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            width: 100%;
         }
 
         h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 30px;
-            font-size: 2rem;
         }
 
         h2 {
-            font-size: 1.2rem;
-            color: #555;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #eee;
+            font-size: 1.3rem;
+            margin-top: 30px;
             padding-bottom: 5px;
+            border-bottom: 3px solid #eee;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 15px;
+            margin-top: 15px;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 0;
-        }
-
-        a {
+        a.card {
             display: block;
-            padding: 15px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-top: 4px solid #007bff;
             border-radius: 8px;
-            transition: transform 0.2s, background-color 0.2s;
-            font-weight: 500;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
-        a:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
+        a.card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        a span {
+        a.card strong {
             display: block;
-            opacity: 0.8;
+            font-size: 1.05em;
+            margin-bottom: 5px;
+        }
+
+        a.card span {
             font-size: 0.85em;
-            margin-top: 3px;
+            color: #666;
+            display: block;
+            line-height: 1.4;
+        }
+
+        /* Zone Colors */
+        .zone-red {
+            border-bottom-color: #dc3545 !important;
+            color: #dc3545;
+        }
+
+        .card-red {
+            border-top-color: #dc3545 !important;
+        }
+
+        .zone-purple {
+            border-bottom-color: #6f42c1 !important;
+            color: #6f42c1;
+        }
+
+        .card-purple {
+            border-top-color: #6f42c1 !important;
+        }
+
+        .zone-green {
+            border-bottom-color: #28a745 !important;
+            color: #28a745;
+        }
+
+        .card-green {
+            border-top-color: #28a745 !important;
+        }
+
+        .zone-blue {
+            border-bottom-color: #007bff !important;
+            color: #007bff;
+        }
+
+        .card-blue {
+            border-top-color: #007bff !important;
+        }
+
+        .zone-yellow {
+            border-bottom-color: #ffc107 !important;
+            color: #d39e00;
+        }
+
+        .card-yellow {
+            border-top-color: #ffc107 !important;
         }
 
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
-            background-color: #6c757d;
-            padding: 8px 15px;
-            font-size: 0.9rem;
-            width: auto;
-            border-radius: 5px;
-            color: white;
+            color: #666;
             text-decoration: none;
         }
 
         .back-link:hover {
-            background-color: #5a6268;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -103,60 +135,142 @@
     <div class="container">
         <a href="../index.html" class="back-link">&larr; Back to Main Index</a>
 
-        <h1>Techfest Docs & Developer Guides</h1>
+        <h1>PROJECT NEXUS: MASTER EVENT ROSTER</h1>
+        <p style="text-align: center; color: #666;">Total Projects: 27 | Status: 100% Documented</p>
 
-        <h2>Core Proposals</h2>
+        <div style="text-align: center; margin-bottom: 30px;">
+            <a href="project_nexus_proposal.html"
+                style="display: inline-block; padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">View
+                Master Proposal Logic & Economy</a>
+        </div>
+
+        <!-- RED ZONE -->
+        <h2 class="zone-red">🔴 ZONE A: The Main Event (Competitive Gaming)</h2>
         <div class="grid">
-            <a href="project_nexus_proposal.html">
-                1. Project Nexus Master Proposal (v2.0)
-                <span>Includes 27-Project Roster & Coin Economy SVG</span>
+            <a href="projects/zone_a_deadshot.html" class="card card-red">
+                <strong>1. Deadshot.io Tournament</strong>
+                <span>1v1 FPS Browser Battle. Challenge the AI Bot.</span>
             </a>
         </div>
 
-        <h2>Session Curriculums (The "Teach" Part)</h2>
+        <!-- PURPLE ZONE -->
+        <h2 class="zone-purple">🟣 ZONE B: The Arcade (Interactive AI)</h2>
         <div class="grid">
-            <a href="sessions/cyber_security_curriculum.html">
-                Cyber Security 2026
-                <span>45-min Workshop & Live Demos</span>
+            <a href="projects/zone_a_flappy.html" class="card card-purple">
+                <strong>2. Nose-Nav Flappy Bird</strong>
+                <span>Hands-free CV Game. <br><strong>*Includes Code Guide</strong></span>
             </a>
-            <a href="sessions/data_science_curriculum.html">
-                Data Science & AI
-                <span>45-min Deep Dive into GenAI</span>
+            <a href="projects/zone_a_cloak.html" class="card card-purple">
+                <strong>3. Invisible Cloak</strong>
+                <span>The Vanishing Act (OpenCV).</span>
             </a>
-            <a href="sessions/iot_curriculum.html">
-                IoT Dashboards
-                <span>45-min Hardware & MQTT Breakdown</span>
+            <a href="projects/arcade_celebrity.html" class="card card-purple">
+                <strong>4. Celebrity Matching</strong>
+                <span>Who is your twin? (Face Embeddings).</span>
+            </a>
+            <a href="projects/arcade_troll.html" class="card card-purple">
+                <strong>5. AI Troll Bot</strong>
+                <span>Debate the toxic LLM.</span>
+            </a>
+            <a href="projects/zone_c_sonic.html" class="card card-purple">
+                <strong>6. AI Music Gen</strong>
+                <span>Sonic Identity Generator.</span>
+            </a>
+            <a href="projects/zone_c_ai_art.html" class="card card-purple">
+                <strong>7. AI Artist & Meme Maker</strong>
+                <span>Stable Diffusion Prompting. <br><strong>*Includes Code Guide</strong></span>
+            </a>
+            <a href="projects/arcade_lookmax.html" class="card card-purple">
+                <strong>8. Lookmax AI (The Scan)</strong>
+                <span>Face Stats RPG Generator.</span>
+            </a>
+            <a href="projects/arcade_voice.html" class="card card-purple">
+                <strong>9. Voice Cloning TTS</strong>
+                <span>Guess the Celebrity Voice.</span>
+            </a>
+            <a href="projects/arcade_nn.html" class="card card-purple">
+                <strong>10. Real Model NN</strong>
+                <span>Live Neural Network Visualizer.</span>
+            </a>
+            <a href="projects/arcade_agentic.html" class="card card-purple">
+                <strong>11. Agentic AI Arena</strong>
+                <span>Autonomous Agents Simulation.</span>
             </a>
         </div>
 
-        <h2>Zone Project SRS & Developer Guides (The "Build" Part)</h2>
-
-        <h3>Zone A: The Arena</h3>
+        <!-- GREEN ZONE -->
+        <h2 class="zone-green">🟢 ZONE C: The Cyber-Gym (Hacker Challenges)</h2>
         <div class="grid">
-            <a href="projects/zone_a_deadshot.html">Deadshot.io Tournament Details</a>
-            <a href="projects/zone_a_flappy.html" style="background-color: #28a745;"><strong>Nose-Nav Flappy Bird (Full
-                    SRS)</strong><br><span>Includes Python/MediaPipe Code</span></a>
-            <a href="projects/zone_a_cloak.html">Invisible Cloak Setup</a>
+            <a href="projects/zone_b_password.html" class="card card-green">
+                <strong>12. Password Strength</strong>
+                <span>The Uncrackable Challenge.</span>
+            </a>
+            <a href="projects/cyber_wifi.html" class="card card-green">
+                <strong>13. WiFi Phishing</strong>
+                <span>Spot the "Evil Twin" AP.</span>
+            </a>
+            <a href="projects/cyber_bluetooth.html" class="card card-green">
+                <strong>14. Bluetooth Flooding</strong>
+                <span>(Demo) Device Vulnerability.</span>
+            </a>
+            <a href="projects/cyber_osint.html" class="card card-green">
+                <strong>15. Email ID Sherlock</strong>
+                <span>OSINT: Find yourself online.</span>
+            </a>
+            <a href="projects/cyber_rat.html" class="card card-green">
+                <strong>16. Malware Control RAT</strong>
+                <span>Defense Lab Hunt.</span>
+            </a>
+            <a href="projects/cyber_darkweb.html" class="card card-green">
+                <strong>17. Dark Web Access</strong>
+                <span>Tor Network Educational Tour.</span>
+            </a>
+            <a href="projects/cyber_ig.html" class="card card-green">
+                <strong>18. Instagram Clout Rater</strong>
+                <span>AI Profile Analysis.</span>
+            </a>
         </div>
 
-        <h3>Zone B: The Cyber-Lab</h3>
+        <!-- BLUE ZONE -->
+        <h2 class="zone-blue">🔵 ZONE D: Speed Runs (Dev Challenges)</h2>
         <div class="grid">
-            <a href="projects/zone_b_phishing.html">The Phishing Tank Challenges</a>
-            <a href="projects/zone_b_password.html">Password Strength Meter Logic</a>
+            <a href="projects/zone_d_sprint.html" class="card card-blue">
+                <strong>19. Coding in 15 Min</strong>
+                <span>High-pressure Algorithms.</span>
+            </a>
+            <a href="projects/sprint_web.html" class="card card-blue">
+                <strong>20. Instant Website</strong>
+                <span>Landing Page Speedrun (AI Tools).</span>
+            </a>
+            <a href="projects/sprint_handbook.html" class="card card-blue">
+                <strong>21. Coding Handbooks</strong>
+                <span>Resource Station.</span>
+            </a>
         </div>
 
-        <h3>Zone C: The AI Studio</h3>
+        <!-- YELLOW ZONE -->
+        <h2 class="zone-yellow">🟡 ZONE E: Infrastructure & Sessions</h2>
         <div class="grid">
-            <a href="projects/zone_c_ai_art.html" style="background-color: #28a745;"><strong>AI Artist & Meme Maker
-                    (Full SRS)</strong><br><span>Includes Flask/OpenAI Code</span></a>
-            <a href="projects/zone_c_sonic.html">Sonic Identity (Music Gen) Specs</a>
-        </div>
-
-        <h3>Zone D: Dev Sprints</h3>
-        <div class="grid">
-            <a href="projects/zone_d_sprint.html">15-Minute Code Sprint Rules</a>
-            <a href="projects/zone_d_iot.html" style="background-color: #28a745;"><strong>IoT Smart Hydration (Full
-                    SRS)</strong><br><span>Includes ESP32/MQTT Code</span></a>
+            <a href="projects/infra_coins.html" class="card card-yellow">
+                <strong>22. The Coin System</strong>
+                <span>Economy & QR Architecture.</span>
+            </a>
+            <a href="projects/zone_d_iot.html" class="card card-yellow">
+                <strong>23. Water Dispensary (IoT)</strong>
+                <span>The Potion Shop (MQTT). <br><strong>*Includes Code Guide</strong></span>
+            </a>
+            <a href="sessions/cyber_security_curriculum.html" class="card card-yellow">
+                <strong>24. Session: Cyber Security</strong>
+                <span>45-Min Workshop Curriculum.</span>
+            </a>
+            <a href="sessions/data_science_curriculum.html" class="card card-yellow">
+                <strong>25. Session: Data Science</strong>
+                <span>45-Min GenAI Deep Dive.</span>
+            </a>
+            <a href="sessions/iot_curriculum.html" class="card card-yellow">
+                <strong>26. Session: IoT Dashboards</strong>
+                <span>45-Min Hardware Breakdown.</span>
+            </a>
         </div>
 
     </div>
