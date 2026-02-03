@@ -3,73 +3,178 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techfest Documents Index</title>
-    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        a {
+            display: block;
+            padding: 15px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, background-color 0.2s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        a span {
+            float: right;
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            background-color: #6c757d;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            width: auto;
+        }
+
+        .back-link:hover {
+            background-color: #5a6268;
+        }
+    </style>
 </head>
 
 <body>
 
-    <a href="../index.html" class="back-link no-print">&larr; Main Index</a>
+    <div class="container">
+        <a href="../index.html" class="back-link">&larr; Back to Main Index</a>
 
-    <div class="page">
-        <div class="header">
-            TECHFEST 2026: DOCUMENT REPOSITORY
-        </div>
+        <h1>Techfest Documents Repository</h1>
 
-        <div class="section">
-            <div class="sub-header">1. Core Documents</div>
-            <ul>
-                <li>
-                    <a href="project_nexus_proposal.html"><strong>Project Nexus Proposal (V2.0)</strong></a><br>
-                    <span style="font-size: 10pt; color: #555;">The masterplan including FestCoin economy and
-                        zones.</span>
-                </li>
-            </ul>
-        </div>
+        <h2>Core Documents</h2>
+        <ul>
+            <li>
+                <a href="project_nexus_proposal.html">
+                    1. Project Nexus Proposal
+                    <span>(V2.0)</span>
+                </a>
+            </li>
+        </ul>
 
-        <div class="section">
-            <div class="sub-header">2. Zone A: The Arena (Gaming)</div>
-            <ul>
-                <li><a href="projects/zone_a_deadshot.html">Deadshot.io Tournament Rules</a></li>
-                <li><a href="projects/zone_a_flappy.html">Nose-Nav Flappy Bird Technical Sheet</a></li>
-                <li><a href="projects/zone_a_cloak.html">Invisible Cloak Setup Guide</a></li>
-            </ul>
-        </div>
+        <h2>Zone A: The Arena</h2>
+        <ul>
+            <li>
+                <a href="projects/zone_a_deadshot.html">
+                    2. Deadshot.io Tournament
+                    <span>(Rules & Setup)</span>
+                </a>
+            </li>
+            <li>
+                <a href="projects/zone_a_flappy.html">
+                    3. Nose-Nav Flappy Bird
+                    <span>(Tech Sheet)</span>
+                </a>
+            </li>
+            <li>
+                <a href="projects/zone_a_cloak.html">
+                    4. Invisible Cloak
+                    <span>(Setup Guide)</span>
+                </a>
+            </li>
+        </ul>
 
-        <div class="section">
-            <div class="sub-header">3. Zone B: The Cyber-Lab (Security)</div>
-            <ul>
-                <li><a href="projects/zone_b_phishing.html">The Phishing Tank Challenges</a></li>
-                <li><a href="projects/zone_b_password.html">Password Strength Meter Logic</a></li>
-            </ul>
-        </div>
+        <h2>Zone B: The Cyber-Lab</h2>
+        <ul>
+            <li>
+                <a href="projects/zone_b_phishing.html">
+                    5. The Phishing Tank
+                    <span>(Challenges)</span>
+                </a>
+            </li>
+            <li>
+                <a href="projects/zone_b_password.html">
+                    6. Password Strength Meter
+                    <span>(Logic)</span>
+                </a>
+            </li>
+        </ul>
 
-        <div class="section">
-            <div class="sub-header">4. Zone C: The AI Studio (Generative)</div>
-            <ul>
-                <li><a href="projects/zone_c_ai_art.html">AI Artist & Meme Maker System</a></li>
-                <li><a href="projects/zone_c_sonic.html">Sonic Identity (Music Gen) Specs</a></li>
-            </ul>
-        </div>
+        <h2>Zone C: The AI Studio</h2>
+        <ul>
+            <li>
+                <a href="projects/zone_c_ai_art.html">
+                    7. AI Artist & Meme Maker
+                    <span>(System)</span>
+                </a>
+            </li>
+            <li>
+                <a href="projects/zone_c_sonic.html">
+                    8. Sonic Identity
+                    <span>(Music Gen)</span>
+                </a>
+            </li>
+        </ul>
 
-        <div class="section">
-            <div class="sub-header">5. Zone D: Dev Sprints (Coding & IoT)</div>
-            <ul>
-                <li><a href="projects/zone_d_sprint.html">15-Minute Code Sprint Rules</a></li>
-                <li><a href="projects/zone_d_iot.html">IoT Smart Hydration Blueprints</a></li>
-            </ul>
-        </div>
+        <h2>Zone D: Dev Sprints</h2>
+        <ul>
+            <li>
+                <a href="projects/zone_d_sprint.html">
+                    9. 15-Minute Code Sprint
+                    <span>(Rules)</span>
+                </a>
+            </li>
+            <li>
+                <a href="projects/zone_d_iot.html">
+                    10. IoT Smart Hydration
+                    <span>(Blueprints)</span>
+                </a>
+            </li>
+        </ul>
 
-        <div class="signatories">
-            <div class="sign-box">
-                ____________________<br>
-                <strong>TechFest Convener</strong>
-            </div>
-            <div class="sign-box">
-                ____________________<br>
-                <strong>Faculty Advisor</strong>
-            </div>
-        </div>
     </div>
 
 </body>
