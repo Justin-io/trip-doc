@@ -175,52 +175,124 @@
         <div style="text-align: justify;">
             <ol start="22">
                 <li><strong>The Coin System:</strong> Central DB + QR Scanner WebApp managing the economy.</li>
-                <li><strong>Water Dispensary:</strong> "Potion Shop" – IoT dispenser activated by spending coins (MQTT).
-                </li>
+                <li><strong>Water Dispensary:</strong> "Pothion Shop" – IoT dispenser activated by spending coins
+                    (MQTT).</li>
                 <li><strong>Interactive Sessions:</strong> 3x 45-Minute Workshops (Detailed below).</li>
                 <li><strong>The Leaderboard:</strong> Live projector display of Top 10 Scorer names.</li>
             </ol>
         </div>
     </div>
 
-    <!-- 4. Workshop Curriculum (New Detailed Section) -->
+    <!-- 4. Workshop Curriculum (Detailed Syllabus) -->
     <div style="font-weight: bold; margin-bottom: 10px; text-transform: uppercase;">4. Technical Workshops (Curriculum
         Breakdown)</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        To ensure high educational value, we are conducting three intensive 45-minute technical workshops.
+        To ensure high educational value, we are conducting three intensive 45-minute technical workshops. Below is any
+        exhaustive breakdown of the curriculum for each session.
 
-        <div style="margin-top: 15px; margin-bottom: 5px; font-weight: bold; text-decoration: underline;">A. Cyber
-            Security 2026: The Modern Defense</div>
-        <ul style="margin-top: 5px; margin-bottom: 15px;">
-            <li><strong>Phase 1 (The Threat):</strong> Analysis of Global Ransomware costs and AI-driven threats like
-                WormGPT.</li>
-            <li><strong>Phase 2 (The Attack):</strong> Live <strong>OSINT Demonstration</strong> (Tracking a digital
-                footprint) and a technical breakdown of the "Evil Twin" WiFi attack.</li>
-            <li><strong>Phase 3 (The Defense):</strong> Hands-on workshop on managing Digital Identity (2FA/MFA setup,
-                Password Managers, Encryption basics).</li>
-        </ul>
+        <!-- Session A -->
+        <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; background-color: #fafafa;">
+            <div style="font-weight: bold; text-decoration: underline; color: #cc0000; margin-bottom: 10px;">A. Cyber
+                Security 2026: The Modern Defense (45 Mins)</div>
 
-        <div style="margin-top: 15px; margin-bottom: 5px; font-weight: bold; text-decoration: underline;">B. Data
-            Science & AI: From Math to GenAI</div>
-        <ul style="margin-top: 5px; margin-bottom: 15px;">
-            <li><strong>Phase 1 (The Pipeline):</strong> The "Data to Decision" lifecycle using a real-world Netflix
-                Recommendation Case Study (Collection -> Cleaning -> Modeling).</li>
-            <li><strong>Phase 2 (The Brain):</strong> Demystifying Neural Networks with visual interactives (Weights,
-                Biases, Activation Functions).</li>
-            <li><strong>Phase 3 (The Magic):</strong> Deep dive into <strong>LLM Transformers</strong> (Attention
-                Mechanisms) and <strong>Diffusion Models</strong> (Noise Removal logic).</li>
-        </ul>
+            <table width="100%" border="1" cellpadding="5" cellspacing="0"
+                style="border-collapse: collapse; font-size: 11pt;">
+                <tr style="background-color: #eee;">
+                    <th width="20%">Time</th>
+                    <th>Topic & Key Talking Points</th>
+                </tr>
+                <tr>
+                    <td>0:00 - 10:00</td>
+                    <td><strong>The Threat Landscape:</strong> Analysis of Global Ransomware costs (every 39s attack
+                        frequency) and Case Studies of recent breaches (e.g., 23andMe).</td>
+                </tr>
+                <tr>
+                    <td>10:00 - 20:00</td>
+                    <td><strong>OSINT & Social Engineering (Live Demo):</strong> Phishing vs Spear Phishing psychology.
+                        <strong>Live Demo:</strong> Tracking a volunteer's digital footprint using OSINT tools
+                        (Maltego/Google Dorks).</td>
+                </tr>
+                <tr>
+                    <td>20:00 - 30:00</td>
+                    <td><strong>AI in CyberSec:</strong> How attackers use LLMs (WormGPT) for polymorphic malware.
+                        Deepfakes and identity verification challenges.</td>
+                </tr>
+                <tr>
+                    <td>30:00 - 45:00</td>
+                    <td><strong>Practical Defense Workshop:</strong> Setting up Password Managers (Bitwarden), 2FA/MFA
+                        (YubiKey), and Browser Hygiene (SSL/Ad-blockers).</td>
+                </tr>
+            </table>
+        </div>
 
-        <div style="margin-top: 15px; margin-bottom: 5px; font-weight: bold; text-decoration: underline;">C. IoT &
-            Hardware: The Connected World</div>
-        <ul style="margin-top: 5px; margin-bottom: 15px;">
-            <li><strong>Phase 1 (Architecture):</strong> The 4 Layers of IoT (Perception, Network, Processing,
-                Application).</li>
-            <li><strong>Phase 2 (Protocols):</strong> A technical comparison of <strong>MQTT vs HTTP</strong> (Pub/Sub
-                models, QoS levels, Broker Architecture).</li>
-            <li><strong>Phase 3 (The Build):</strong> Live code walkthrough of the "Water Dispenser" project (ESP32
-                Firmware, Relay Logic for high-voltage control, Cloud Dashboards).</li>
-        </ul>
+        <!-- Session B -->
+        <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; background-color: #fafafa;">
+            <div style="font-weight: bold; text-decoration: underline; color: #0033cc; margin-bottom: 10px;">B. Data
+                Science & AI: From Math to GenAI (45 Mins)</div>
+
+            <table width="100%" border="1" cellpadding="5" cellspacing="0"
+                style="border-collapse: collapse; font-size: 11pt;">
+                <tr style="background-color: #eee;">
+                    <th width="20%">Time</th>
+                    <th>Topic & Key Talking Points</th>
+                </tr>
+                <tr>
+                    <td>0:00 - 10:00</td>
+                    <td><strong>The Data Pipeline:</strong> "Data to Decision" lifecycle using a Netflix Recommendation
+                        Case Study. Steps: Collection -> Cleaning -> Modeling -> Deployment.</td>
+                </tr>
+                <tr>
+                    <td>10:00 - 20:00</td>
+                    <td><strong>Neural Networks Demystified:</strong> Visual interactive of a Neuron (Weights, Bias,
+                        Activation Functions). Training logic (Backpropagation) explained simply.</td>
+                </tr>
+                <tr>
+                    <td>20:00 - 35:00</td>
+                    <td><strong>The GenAI Revolution:</strong> Discriminative vs Generative AI. Deep dive into
+                        <strong>Transformers (LLMs)</strong> and <strong>Diffusion Models</strong> (Image Generation).
+                    </td>
+                </tr>
+                <tr>
+                    <td>35:00 - 45:00</td>
+                    <td><strong>Ethics & Careers:</strong> Algorithmic Bias in hiring. The Job Market shift: AI as a
+                        co-pilot. Career paths (Analyst vs Engineer vs ML Ops).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Session C -->
+        <div style="margin-top: 20px; border: 1px solid #ddd; padding: 15px; background-color: #fafafa;">
+            <div style="font-weight: bold; text-decoration: underline; color: #cc9900; margin-bottom: 10px;">C. IoT &
+                Hardware: The Connected World (45 Mins)</div>
+
+            <table width="100%" border="1" cellpadding="5" cellspacing="0"
+                style="border-collapse: collapse; font-size: 11pt;">
+                <tr style="background-color: #eee;">
+                    <th width="20%">Time</th>
+                    <th>Topic & Key Talking Points</th>
+                </tr>
+                <tr>
+                    <td>0:00 - 10:00</td>
+                    <td><strong>IoT Architecture:</strong> The 4 Layers (Perception, Network, Processing, Application).
+                        Sensors as "Skin" and Actuators as "Muscles".</td>
+                </tr>
+                <tr>
+                    <td>10:00 - 20:00</td>
+                    <td><strong>Protocols (HTTP vs MQTT):</strong> Why Request/Response fails for real-time. Explanation
+                        of MQTT Pub/Sub model, Broker architecture, and QoS levels.</td>
+                </tr>
+                <tr>
+                    <td>20:00 - 30:00</td>
+                    <td><strong>Hardware Logic (ESP32):</strong> ESP32 vs Arduino Uno capabilities. 3.3V vs 5V logic
+                        safety. Using Relays for high-voltage control.</td>
+                </tr>
+                <tr>
+                    <td>30:00 - 45:00</td>
+                    <td><strong>Live Build (Water Dispenser):</strong> Code walkthrough of the "Potion Shop" project.
+                        Flashing ESP32 firmware and connecting to Cloud Dashboards (ThingsBoard).</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <!-- 5. Requirements & Logistics -->
