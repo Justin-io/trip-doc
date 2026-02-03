@@ -4,145 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip Documents Index</title>
+    <title>Event Documentation</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 15px;
-        }
-
-        a {
-            display: block;
-            padding: 15px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.2s, background-color 0.2s;
-            font-weight: 500;
-        }
-
-        a:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-
-        a span {
-            float: right;
-            opacity: 0.8;
-            font-size: 0.9em;
-        }
+        /* Inline overrides if needed */
     </style>
 </head>
 
 <body>
+    <div class="background-blur"></div>
+    <div class="background-blur-2"></div>
 
-    <div class="container">
-        <h1>Tour Documents Index</h1>
-        <ul>
-            <li>
-                <a href="general_secretary_permission_letter.html">
-                    1. Request to General Secretary
-                    <span>(Permission Request)</span>
-                </a>
-            </li>
-            <li>
-                <a href="principal_permission_letter.html">
-                    2. Request Letter (Principal)
-                    <span>(New Format)</span>
-                </a>
-            </li>
+    <h1>Documentation Board</h1>
 
-            <li>
-                <a href="approval_request_to_joint_director.html">
-                    3. Approval Request (Joint Director)
-                    <span>(Formal Request)</span>
-                </a>
-            </li>
-            <li>
-                <a href="tour_summary.html">
-                    4. Proposal Summary
-                    <span>(Summary & Staff)</span>
-                </a>
-            </li>
-            <li>
-                <a href="student_list.html">
-                    5. Detailed Student List
-                    <span>(Full Details)</span>
-                </a>
-            </li>
-            <li>
-                <a href="student_name_list.html">
-                    6. Student Name List
-                    <span>(Simple List)</span>
-                </a>
-            </li>
-            <li>
-                <a href="company_certificate_format.html">
-                    7. Company Certificate Format
-                    <span>(Annexure VI)</span>
-                </a>
-            </li>
-            <li>
-                <a href="malayalam_checklist.html">
-                    8. Checklist (Malayalam)
-                    <span>(Checklist & Cert.)</span>
-                </a>
-            </li>
+    <div class="folder-container">
+        <!-- Trip Folder -->
+        <a href="trip/index.html" class="folder-card">
+            <span class="status-indicator"></span>
+            <div class="icon">✈️</div>
+            <div class="folder-title">IV & Trip Documents</div>
+            <div class="folder-desc">Permissions, checklists, and student lists for the upcoming trip.</div>
+        </a>
 
-            <li>
-                <a href="declaration.html">
-                    9. Declaration
-                    <span>(Student Declaration)</span>
-                </a>
-            </li>
-            <li>
-                <a href="industrial_visit_email.html">
-                    10. Industrial Visit Email Draft
-                    <span>(For Industry)</span>
-                </a>
-            </li>
-            <li>
-                <a href="fee_undertaking_request.html">
-                    11. Fee Undertaking Request
-                    <span>(Request Letter)</span>
-                </a>
-            </li>
-        </ul>
+        <!-- Techfest Folder -->
+        <a href="techfest/index.html" class="folder-card">
+            <span class="status-indicator status-new"></span>
+            <div class="icon">🚀</div>
+            <div class="folder-title">Techfest Documents</div>
+            <div class="folder-desc">Planning, schedules, and resources for the Techfest event.</div>
+        </a>
     </div>
 
+    <script>
+        // Simple tilt effect script
+        document.querySelectorAll('.folder-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5;
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+    </script>
 </body>
 
 </html>

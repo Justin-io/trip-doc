@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techfest Documents</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blur"></div>
+
+    <a href="../index.html" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to Dashboard
+    </a>
+
+    <h1>Techfest Documents</h1>
+
+    <div class="empty-state">
+        <div class="icon" style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+        <h2>No Documents Yet</h2>
+        <p style="color: #94a3b8; margin-top: 10px;">The Techfest repository has been initialized. <br>Add your files
+            here to see them listed.</p>
+    </div>
+
+</body>
+
+</html>
