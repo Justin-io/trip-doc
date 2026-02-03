@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nose-Nav Flappy Bird Details</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <p class="no-print"><a href="../index.html">&larr; Back to Techfest Index</a></p>
+
+    <h1>Project: Nose-Nav Flappy Bird</h1>
+    <h3>Zone A: The Arena</h3>
+
+    <hr>
+
+    <h2>1. Overview</h2>
+    <p>An interactive twist on the classic Flappy Bird game. Instead of tapping a screen, players control the bird's
+        movement using their nose position, tracked via a webcam.</p>
+
+    <h2>2. Gameplay & Rules</h2>
+    <ul>
+        <li><strong>Control:</strong> Move head UP to fly higher, DOWN to dive.</li>
+        <li><strong>Objective:</strong> Pass 10 pipes to win.</li>
+        <li><strong>Coin Reward:</strong>
+            <ul>
+                <li>Score > 10: 40 FestCoins</li>
+                <li>Score < 10: 5 FestCoins</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>3. Technical Implementation</h2>
+    <ul>
+        <li><strong>Stack:</strong> Python (PyGame) or JavaScript (p5.js).</li>
+        <li><strong>Vision Library:</strong>
+            <ul>
+                <li><strong>MediaPipe Face Mesh:</strong> Tracks the nose tip landmark (Index 4).</li>
+                <li><strong>Logic:</strong> rapid changes in Y-coordinate trigger the "jump" event.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>4. Requirements</h2>
+    <ul>
+        <li>1 PC/Laptop with a good Webcam.</li>
+        <li>Large Monitor for the player.</li>
+        <li>Good lighting for face detection.</li>
+    </ul>
+</body>
+
+</html>

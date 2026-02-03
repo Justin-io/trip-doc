@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Artist & Meme Maker Details</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <a href="../index.html" class="back-link no-print">&larr; Back</a>
+
+    <div class="page">
+        <div class="header">
+            PROJECT TECHNICAL SHEET: AI ARTIST STUDIO
+        </div>
+
+        <div class="doc-meta">
+            <strong>Zone:</strong> C (The AI Studio)<br>
+            <strong>Project ID:</strong> C-01<br>
+            <strong>Lead POC:</strong> [Name]<br>
+            <strong>Date:</strong> 03-02-2026
+        </div>
+
+        <div class="section">
+            <div class="sub-header">1. Project Overview</div>
+            The "AI Artist & Meme Maker" is an interactive generative art station where attendees enter creative prompts
+            to generate custom stickers or memes in real-time. The goal is to demonstrate the capabilities of multimodal
+            AI models like Stable Diffusion or DALL-E in a fun, accessible way.
+        </div>
+
+        <div class="section">
+            <div class="sub-header">2. User Interactions</div>
+            <ol>
+                <li><strong>Prompt Entry:</strong> User types a prompt (e.g., "Cyberpunk cat eating pizza") on a tablet.
+                </li>
+                <li><strong>Generation:</strong> The system processes the request using a generative API (e.g.,
+                    Stability AI or OpenAI).</li>
+                <li><strong>Output:</strong> A high-quality image is displayed within 10-15 seconds.</li>
+                <li><strong>Share:</strong> A QR code is generated for the user to download the image.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <div class="sub-header">3. Technical Architecture</div>
+            <ul>
+                <li><strong>API Provider:</strong> OpenAI DALL-E 3 API or Stability AI (SDXL).</li>
+                <li><strong>Backend:</strong> Python Flask/FastAPI server to handle requests and API keys securely.</li>
+                <li><strong>Frontend:</strong> A simple React or HTML5 interface running on a kiosk mode tablet.</li>
+                <li><strong>Display:</strong> Results mirrored to a secondary monitor for crowd visibility.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="sub-header">4. Hardware Requirements</div>
+            <ul>
+                <li>1x High-Performance Laptop (for hosting backend/mirroring).</li>
+                <li>1x Tablet (iPad/Android) for user input.</li>
+                <li>Stable Internet Connection (Minimum 100 Mbps uplink).</li>
+            </ul>
+        </div>
+
+        <div class="signatories">
+            <div class="sign-box">
+                ____________________<br>
+                <strong>Faculty Coordinator</strong>
+            </div>
+            <div class="sign-box">
+                ____________________<br>
+                <strong>Event Head</strong>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

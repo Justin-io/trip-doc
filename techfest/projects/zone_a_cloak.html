@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Invisible Cloak Project Details</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+    <p class="no-print"><a href="../index.html">&larr; Back to Techfest Index</a></p>
+
+    <h1>Project: Invisible Cloak</h1>
+    <h3>Zone A: The Arena</h3>
+
+    <hr>
+
+    <h2>1. Overview</h2>
+    <p>A "magic" experience inspired by Harry Potter. When a user holds a specific colored cloth (e.g., Red or Green),
+        the camera renders the background instead of the cloth, making them appear transparent.</p>
+
+    <h2>2. User Experience</h2>
+    <ul>
+        <li>Users stand in front of a fixed camera.</li>
+        <li>They wrap themselves in the "Cloak".</li>
+        <li>On the screen, their body disappears, showing only the background behind them.</li>
+        <li><strong>Reward:</strong> 10 FestCoins (Experience only).</li>
+    </ul>
+
+    <h2>3. Technical Implementation</h2>
+    <ul>
+        <li><strong>Stack:</strong> Python (OpenCV).</li>
+        <li><strong>Algorithm:</strong>
+            <ol>
+                <li>Capture reference background frame (2-3 seconds).</li>
+                <li>Detect specific color (HSV Range for Red/Blue) to create a mask.</li>
+                <li><strong>Invert Mask:</strong> Segment out the user.</li>
+                <li><strong>Combine:</strong> Replace masked pixels with reference background pixels.</li>
+            </ol>
+        </li>
+    </ul>
+
+    <h2>4. Requirements</h2>
+    <ul>
+        <li>1 Tripod (Camera MUST be stationary).</li>
+        <li>Solid monochrome cloth (Bright Red or Green).</li>
+        <li>Lighting control (avoid shadows).</li>
+    </ul>
+</body>
+
+</html>
