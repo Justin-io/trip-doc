@@ -2,106 +2,118 @@
 <html>
 
 <head>
-    <title>IoT Smart Hydration: Developer Guide</title>
+    <title>IoT Smart Hydration: Developer Guide & Workshop</title>
 </head>
 
 <body style="font-family: 'Times New Roman', Serif; font-size: 12pt; line-height: 1.5; margin: 1in;">
 
-    <div
-        style="text-align: center; margin-bottom: 2em; text-transform: uppercase; font-weight: bold; text-decoration: underline;">
-        Project SRS: IoT Smart Hydration System
+    <div style="text-align: center; margin-bottom: 2em;">
+        <div style="font-size: 16pt; font-weight: bold; text-decoration: underline; margin-bottom: 5px;">
+            PROJECT SRS & WORKSHOP: IoT SMART HYDRATION
+        </div>
+        <div style="font-size: 12pt;">
+            <strong>Domain:</strong> IoT / Embedded Systems | <strong>Duration:</strong> 45 Mins (Build-Along)
+        </div>
     </div>
 
     <!-- 1. System Overview -->
     <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">1. System Overview</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        A 'Smart Vending' prototype where users pay digital "FestCoins" via a web app to dispense physical liquid
-        (Water/Juice). It demonstrates <strong>Cloud-to-Hardware</strong> communication using <strong>MQTT</strong>.
+        A 'Smart Vending' prototype where users pay digital "FestCoins" via a web app to dispense physical liquid.
+        Students will wire an ESP32 to a High-Voltage Relay and trigger it via the Cloud (MQTT).
     </div>
 
-    <!-- 2. Technology Stack -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">2. Technology Stack</div>
+    <!-- 2. Workshop Agenda (45 Mins) -->
+    <div
+        style="font-weight: bold; margin-bottom: 10px; text-transform: uppercase; background-color: #eee; padding: 5px;">
+        2. Workshop Agenda (45 Minutes)</div>
+    <table width="100%" border="1" cellpadding="8" cellspacing="0"
+        style="border-collapse: collapse; margin-bottom: 20px;">
+        <tr style="background-color: #f9f9f9;">
+            <th width="20%">Time</th>
+            <th width="80%">Activity & Steps</th>
+        </tr>
+        <tr>
+            <td>0:00 - 10:00</td>
+            <td>
+                <strong>The Hardware (Wiring Party)</strong><br>
+                - <em>Components:</em> ESP32, 5V Relay, 12V Pump, Battery.<br>
+                - <em>Logic:</em> Why do we need a Relay? (3.3V Signal vs 12V Load).<br>
+                - <em>Action:</em> Wiring GPIO2 -> Relay IN.
+            </td>
+        </tr>
+        <tr>
+            <td>10:00 - 20:00</td>
+            <td>
+                <strong>The Protocol (MQTT Crash Course)</strong><br>
+                - <em>Theory:</em> Pub/Sub vs HTTP.<br>
+                - <em>Broker:</em> Connect to HiveMQ Public Broker.<br>
+                - <em>Topic:</em> Define `nexus/pour`.
+            </td>
+        </tr>
+        <tr>
+            <td>20:00 - 35:00</td>
+            <td>
+                <strong>The Code (ESP32 Firmware)</strong><br>
+                - Setup WiFi connection.<br>
+                - Subscribe to `nexus/pour`.<br>
+                - Write the specific function: `if(msg == "ON") { digitalWrite(2, HIGH); delay(5000); }`
+            </td>
+        </tr>
+        <tr>
+            <td>35:00 - 45:00</td>
+            <td>
+                <strong>The Trigger (Web App Integration)</strong><br>
+                - Create a simple HTML Button.<br>
+                - Use Paho MQTT JS to send "ON" to the broker.<br>
+                - <strong>Demo:</strong> Press button on phone -> Water pours Instantly.
+            </td>
+        </tr>
+    </table>
+
+    <!-- 3. Technology Stack -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">3. Technology Stack</div>
     <div style="margin-bottom: 20px;">
         <ul>
-            <li><strong>Hardware:</strong> ESP32 (WIFI Microcontroller), 5V Relay Module, 12V Submersible Pump, Jumper
-                Wires.</li>
-            <li><strong>IoT Protocol:</strong> MQTT (Message Queuing Telemetry Transport).</li>
-            <li><strong>Broker:</strong> HiveMQ (Free Public Cloud) or Mosquitto (Local).</li>
-            <li><strong>Web App:</strong> HTML/JS with Paho MQTT Client.</li>
+            <li><strong>Hardware:</strong> ESP32, Relay Module, Submersible Pump.</li>
+            <li><strong>Protocol:</strong> MQTT (HiveMQ).</li>
+            <li><strong>Code:</strong> C++ (Arduino IDE) + HTML/JS.</li>
         </ul>
     </div>
 
-    <!-- 3. Workflow Logic -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">3. Workflow Logic</div>
+    <!-- 4. Student Developer Guide (Code) -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">4. Core Code Snippet (MVP)</div>
     <div style="margin-bottom: 20px;">
-        <ol>
-            <li><strong>Standby:</strong> ESP32 connects to WiFi and Subscribes to topic `nexus/pour`.</li>
-            <li><strong>Trigger:</strong> User scans QR code -> Web App publishes message `{ "action": "ON" }` to
-                `nexus/pour`.</li>
-            <li><strong>Receive:</strong> ESP32 receives the message via WiFi.</li>
-            <li><strong>Actuate:</strong> ESP32 sets GPIO Pin HIGH -> Relay Closes -> Pump turns ON.</li>
-            <li><strong>Dispense:</strong> Wait 5 seconds (calibrated dose).</li>
-            <li><strong>Reset:</strong> Set GPIO Pin LOW -> Relay Opens -> Pump OFF.</li>
-        </ol>
-    </div>
-
-    <!-- 4. MVP Development Steps -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">4. Student Developer Guide (MVP)
-    </div>
-    <div style="margin-bottom: 20px;">
-
-        <div style="font-weight: bold; text-decoration: underline;">Step 1: Circuit Diagram</div>
-        <ul>
-            <li>Connect <strong>VCC</strong> of Relay to <strong>VIN (5V)</strong> of ESP32.</li>
-            <li>Connect <strong>GND</strong> of Relay to <strong>GND</strong> of ESP32.</li>
-            <li>Connect <strong>IN</strong> of Relay to <strong>GPIO 2</strong> (D2).</li>
-            <li>Connect Pump in series with the Relay COM/NO ports and Battery.</li>
-        </ul>
-
-        <div style="font-weight: bold; text-decoration: underline;">Step 2: ESP32 Code (Arduino IDE)</div>
+        <div style="font-style: italic; margin-bottom: 10px;">The ESP32 Receiver Logic:</div>
         <pre style="background: #f4f4f4; padding: 10px; border: 1px solid #ddd; font-size: 10pt;">
 #include <WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "YOUR_WIFI";
-const char* password = "YOUR_PASS";
+// 1. Connection Details
+const char* ssid = "WIFI_NAME";
 const char* mqtt_server = "broker.hivemq.com";
+const char* topic = "nexus/pour";
 
-WiFiClient espClient;
-PubSubClient client(espClient);
-
+// 2. The Actuator Logic
 void callback(char* topic, byte* payload, unsigned int length) {
-  // If message received
-  digitalWrite(2, HIGH); // Turn Pump ON
-  delay(5000);           // Wait 5s
-  digitalWrite(2, LOW);  // Turn Pump OFF
+  Serial.print("Message Received: ");
+  
+  // Checking for "ON" command
+  if ((char)payload[0] == 'O') {
+    digitalWrite(2, HIGH); // Pump ON
+    delay(5000);           // 5 Seconds pour
+    digitalWrite(2, LOW);  // Pump OFF
+  }
 }
 
+// 3. Setup
 void setup() {
   pinMode(2, OUTPUT);
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid, "PASSWORD");
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
 }
-
-void loop() {
-  if (!client.connected()) reconnect();
-  client.loop();
-}
         </pre>
-
-        <div style="font-weight: bold; text-decoration: underline;">Step 3: The "Pay" Button (Web)</div>
-        <div style="font-style: italic;">Use Paho MQTT JS CDN to publish from browser.</div>
-    </div>
-
-    <!-- 5. Learning Outcomes -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">5. Learning Outcomes</div>
-    <div style="margin-bottom: 20px;">
-        <ul>
-            <li>IoT Protocols (Why MQTT over HTTP?).</li>
-            <li>Relay Logic (Controlling High Voltage with Low Voltage).</li>
-            <li>Asynchronous Communication.</li>
-        </ul>
     </div>
 
 </body>

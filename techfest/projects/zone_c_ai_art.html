@@ -2,98 +2,116 @@
 <html>
 
 <head>
-    <title>AI Artist: Developer Guide</title>
+    <title>AI Artist: Developer Guide & Workshop</title>
 </head>
 
 <body style="font-family: 'Times New Roman', Serif; font-size: 12pt; line-height: 1.5; margin: 1in;">
 
-    <div
-        style="text-align: center; margin-bottom: 2em; text-transform: uppercase; font-weight: bold; text-decoration: underline;">
-        Project SRS: AI Artist & Meme Maker
+    <div style="text-align: center; margin-bottom: 2em;">
+        <div style="font-size: 16pt; font-weight: bold; text-decoration: underline; margin-bottom: 5px;">
+            PROJECT SRS & WORKSHOP: AI ARTIST API
+        </div>
+        <div style="font-size: 12pt;">
+            <strong>Domain:</strong> Generative AI / Web Dev | <strong>Duration:</strong> 45 Mins (Build-Along)
+        </div>
     </div>
 
     <!-- 1. System Overview -->
     <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">1. System Overview</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        A kiosk application that allows users to type a text prompt and receive a unique, AI-generated image. This
-        project demonstrates <strong>Prompt Engineering</strong> and <strong>API Integration</strong> with Generative
-        Models.
+        A kiosk application where users generate custom images via text prompts. Students will build a robust backend to
+        hide API keys and serve a simple "Text-to-Image" frontend using OpenAI's DALL-E or Stability AI.
     </div>
 
-    <!-- 2. Technology Stack -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">2. Technology Stack</div>
+    <!-- 2. Workshop Agenda (45 Mins) -->
+    <div
+        style="font-weight: bold; margin-bottom: 10px; text-transform: uppercase; background-color: #eee; padding: 5px;">
+        2. Workshop Agenda (45 Minutes)</div>
+    <table width="100%" border="1" cellpadding="8" cellspacing="0"
+        style="border-collapse: collapse; margin-bottom: 20px;">
+        <tr style="background-color: #f9f9f9;">
+            <th width="20%">Time</th>
+            <th width="80%">Activity & Steps</th>
+        </tr>
+        <tr>
+            <td>0:00 - 10:00</td>
+            <td>
+                <strong>The Generative Revolution (Theory)</strong><br>
+                - <em>Concept:</em> Diffusion Models (Noise -> Image).<br>
+                - <em>API Economy:</em> Why use an API vs hosting your own model (Compute Costs).<br>
+                - <em>Setup:</em> Get OpenAI API Key.
+            </td>
+        </tr>
+        <tr>
+            <td>10:00 - 20:00</td>
+            <td>
+                <strong>Step 1: The Backend (Flask Security)</strong><br>
+                - <em>Problem:</em> Never expose API keys in Frontend JS.<br>
+                - <em>Solution:</em> Build a Python Flask Proxy.<br>
+                - <em>Code:</em> `pip install flask openai`
+            </td>
+        </tr>
+        <tr>
+            <td>20:00 - 35:00</td>
+            <td>
+                <strong>Step 2: The API Call (Connecting DALL-E)</strong><br>
+                - Write the POST route.<br>
+                - Format the Payload: `{ prompt: "cyberpunk cat", size: "1024x1024" }`.<br>
+                - Extract the URL from JSON response.
+            </td>
+        </tr>
+        <tr>
+            <td>35:00 - 45:00</td>
+            <td>
+                <strong>Step 3: The Frontend (User Experience)</strong><br>
+                - Build a simple HTML form.<br>
+                - Add a "Loading Spinner" (Latent generation takes ~10s).<br>
+                - Display result.
+            </td>
+        </tr>
+    </table>
+
+    <!-- 3. Technology Stack -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">3. Technology Stack</div>
     <div style="margin-bottom: 20px;">
         <ul>
-            <li><strong>Frontend:</strong> HTML5 + Bootstrap (or React) for a clean UI.</li>
-            <li><strong>Backend:</strong> Python Flask (to hide API keys).</li>
-            <li><strong>AI Service:</strong> OpenAI DALL-E 3 API or Stability.ai API.</li>
-            <li><strong>Storage:</strong> Local folder or Cloudinary (for QR code hosting).</li>
+            <li><strong>Backend:</strong> Python Flask (Micro-server).</li>
+            <li><strong>AI Provider:</strong> OpenAI API (DALL-E 3).</li>
+            <li><strong>Frontend:</strong> HTML/JS (Fetch API).</li>
         </ul>
     </div>
 
-    <!-- 3. Workflow Logic -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">3. Workflow Logic</div>
+    <!-- 4. Student Developer Guide (Code) -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">4. Core Code Snippet (MVP)</div>
     <div style="margin-bottom: 20px;">
-        <ol>
-            <li><strong>Input:</strong> User types "Cyberpunk cat eating pizza".</li>
-            <li><strong>Request:</strong> Frontend sends POST to Flask backend `[POST] /generate`.</li>
-            <li><strong>Generation:</strong> Backend calls `openai.Image.create`.</li>
-            <li><strong>Receive:</strong> OpenAI returns an Image URL.</li>
-            <li><strong>Display:</strong> Frontend renders the image `&lt;img src="..."&gt;`.</li>
-        </ol>
-    </div>
-
-    <!-- 4. MVP Development Steps -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">4. Student Developer Guide (MVP)
-    </div>
-    <div style="margin-bottom: 20px;">
-
-        <div style="font-weight: bold; text-decoration: underline;">Step 1: Setup Backend</div>
+        <div style="font-style: italic; margin-bottom: 10px;">The Python Backend Logic:</div>
         <pre style="background: #f4f4f4; padding: 10px; border: 1px solid #ddd; font-size: 10pt;">
 from flask import Flask, request, jsonify
 import openai
 
 app = Flask(__name__)
-openai.api_key = "YOUR_KEY"
+# NEVER hardcode this in production repository
+openai.api_key = "sk-..." 
 
 @app.route('/generate', methods=['POST'])
-def generate():
-    prompt = request.json.get('prompt')
-    response = openai.Image.create(
-        prompt=prompt,
-        n=1,
-        size="512x512"
-    )
-    return jsonify({'url': response['data'][0]['url']})
+def generate_image():
+    user_prompt = request.json.get('prompt')
+    
+    try:
+        response = openai.Image.create(
+            prompt=user_prompt,
+            n=1,
+            size="512x512"
+        )
+        image_url = response['data'][0]['url']
+        return jsonify({'success': True, 'url': image_url})
+        
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(debug=True, port=5000)
         </pre>
-
-        <div style="font-weight: bold; text-decoration: underline;">Step 2: Frontend JS</div>
-        <div style="font-style: italic;">Make a Fetch call to your local server.</div>
-        <pre style="background: #f4f4f4; padding: 10px; border: 1px solid #ddd; font-size: 10pt;">
-async function makeArt() {
-    const txt = document.getElementById("prompt").value;
-    const res = await fetch("http://localhost:5000/generate", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({prompt: txt})
-    });
-    const data = await res.json();
-    document.getElementById("result").src = data.url;
-}
-        </pre>
-    </div>
-
-    <!-- 5. Learning Outcomes -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">5. Learning Outcomes</div>
-    <div style="margin-bottom: 20px;">
-        <ul>
-            <li>REST API Consumption.</li>
-            <li>Handling Latency (Loading States).</li>
-            <li>Safety Filters (Why did the AI refuse the prompt?).</li>
-        </ul>
     </div>
 
 </body>

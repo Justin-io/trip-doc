@@ -2,65 +2,94 @@
 <html>
 
 <head>
-    <title>Nose-Nav Flappy Bird: Developer Guide</title>
+    <title>Nose-Nav Flappy Bird: Developer Guide & Workshop</title>
 </head>
 
 <body style="font-family: 'Times New Roman', Serif; font-size: 12pt; line-height: 1.5; margin: 1in;">
 
-    <div
-        style="text-align: center; margin-bottom: 2em; text-transform: uppercase; font-weight: bold; text-decoration: underline;">
-        Project SRS: Nose-Nav Flappy Bird (Computer Vision Game)
+    <div style="text-align: center; margin-bottom: 2em;">
+        <div style="font-size: 16pt; font-weight: bold; text-decoration: underline; margin-bottom: 5px;">
+            PROJECT SRS & WORKSHOP: NOSE-NAV FLAPPY BIRD
+        </div>
+        <div style="font-size: 12pt;">
+            <strong>Domain:</strong> Computer Vision / Game Dev | <strong>Duration:</strong> 45 Mins (Build-Along)
+        </div>
     </div>
 
     <!-- 1. System Overview -->
     <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">1. System Overview</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        This project is a hands-free interactive game where the player controls the vertical movement of a "bird" sprite
-        using the vertical movement of their nose tip, tracked via a webcam in real-time. It demonstrates <strong>Face
-            Mesh Technology</strong> and <strong>Game Physics Integration</strong>.
+        This project is a hands-free interactive game where the player controls the "bird" using the vertical movement
+        of their nose tip, tracked via a webcam in real-time. Students will learn to map <strong>Face Landmarks</strong>
+        to <strong>Game Physics</strong>.
     </div>
 
-    <!-- 2. Technology Stack -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">2. Technology Stack</div>
+    <!-- 2. Workshop Agenda (45 Mins) -->
+    <div
+        style="font-weight: bold; margin-bottom: 10px; text-transform: uppercase; background-color: #eee; padding: 5px;">
+        2. Workshop Agenda (45 Minutes)</div>
+    <table width="100%" border="1" cellpadding="8" cellspacing="0"
+        style="border-collapse: collapse; margin-bottom: 20px;">
+        <tr style="background-color: #f9f9f9;">
+            <th width="20%">Time</th>
+            <th width="80%">Activity & Steps</th>
+        </tr>
+        <tr>
+            <td>0:00 - 10:00</td>
+            <td>
+                <strong>Concept & Setup</strong><br>
+                - <em>Theory:</em> How Computers "See" (Pixels -> Grayscale -> Features).<br>
+                - <em>Tool:</em> Intro to MediaPipe (468 Face Landmarks). Why Landmark #4 (Nose Tip)?<br>
+                - <em>Setup:</em> `pip install opencv-python mediapipe pygame`
+            </td>
+        </tr>
+        <tr>
+            <td>10:00 - 20:00</td>
+            <td>
+                <strong>Step 1: The Vision (OpenCV + MediaPipe)</strong><br>
+                - Write script to open Webcam (`cv2.VideoCapture`).<br>
+                - Apply MediaPipe FaceMesh.<br>
+                - <strong>Goal:</strong> Draw a green dot on the user's nose in real-time.
+            </td>
+        </tr>
+        <tr>
+            <td>20:00 - 35:00</td>
+            <td>
+                <strong>Step 2: The Logic (Mapping Coordinates)</strong><br>
+                - <em>Problem:</em> Webcam is 640x480, Game is 800x600.<br>
+                - <em>Math:</em> Normalization. `Game_Y = Nose_Y * Screen_Height`.<br>
+                - <em>Physics:</em> Moving a rectangle based on this value.
+            </td>
+        </tr>
+        <tr>
+            <td>35:00 - 45:00</td>
+            <td>
+                <strong>Step 3: The Game (Collision & Polish)</strong><br>
+                - Add Pipes (moving left).<br>
+                - Check Collision: `if Bird.rect.colliderect(Pipe.rect): Game Over`.<br>
+                - <em>Challenge:</em> Add "Squat to Restart" feature.
+            </td>
+        </tr>
+    </table>
+
+    <!-- 3. Technology Stack -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">3. Technology Stack</div>
     <div style="margin-bottom: 20px;">
         <ul>
             <li><strong>Language:</strong> Python 3.9+</li>
-            <li><strong>Computer Vision:</strong> MediaPipe (Google's ML solution for Face Mesh), OpenCV (VideoStream).
-            </li>
-            <li><strong>Game Engine:</strong> PyGame (for rendering sprites, physics, and collision).</li>
-            <li><strong>Hardware:</strong> Standard Webcam (30fps), CPU (i5 or better).</li>
+            <li><strong>Libraries:</strong> MediaPipe (Tracking), OpenCV (Input), PyGame (Rendering).</li>
         </ul>
     </div>
 
-    <!-- 3. Workflow Logic -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">3. Workflow Logic (Algorithm)</div>
+    <!-- 4. Student Developer Guide (Code) -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">4. Core Code Snippet (MVP)</div>
     <div style="margin-bottom: 20px;">
-        <ol>
-            <li><strong>Capture:</strong> OpenCV reads a frame from the Webcam.</li>
-            <li><strong>Process:</strong> MediaPipe processes the frame to find 468 Face Landmarks.</li>
-            <li><strong>Extract:</strong> Identify <strong>Landmark #4 (Nose Tip)</strong>. Get its Y-coordinate.</li>
-            <li><strong>Normalize:</strong> Map the nose Y-coordinate (0 to 1) to the screen height (0 to 600px).</li>
-            <li><strong>Update Physics:</strong> Move the Bird Sprite to the mapped Y-position (or apply force).</li>
-            <li><strong>Collision:</strong> Check if Bird Rect overlaps with Pipe Rects. If yes -> Game Over.</li>
-            <li><strong>Render:</strong> Draw frame -> Flip Display.</li>
-        </ol>
-    </div>
-
-    <!-- 4. MVP Development Steps -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">4. Student Developer Guide (MVP)
-    </div>
-    <div style="margin-bottom: 20px;">
-
-        <div style="font-weight: bold; text-decoration: underline;">Step 1: Environment Setup</div>
-        <pre
-            style="background: #f4f4f4; padding: 10px; border: 1px solid #ddd;">pip install opencv-python mediapipe pygame</pre>
-
-        <div style="font-weight: bold; text-decoration: underline;">Step 2: Basic Face Tracking Code</div>
-        <div style="font-style: italic; margin-bottom: 10px;">Create `tracker.py` to test webcam info.</div>
+        <div style="font-style: italic; margin-bottom: 10px;">The core tracking logic students must write:</div>
         <pre style="background: #f4f4f4; padding: 10px; border: 1px solid #ddd; font-size: 10pt;">
 import cv2
 import mediapipe as mp
 
+# Initialize Face Mesh
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp_face_mesh.FaceMesh(max_num_faces=1)
 
@@ -73,32 +102,17 @@ while True:
     
     if results.multi_face_landmarks:
         for landmarks in results.multi_face_landmarks:
-            nose = landmarks.landmark[4] # Index 4 is nose tip
+            # Landmark 4 is the Nose Tip
+            nose = landmarks.landmark[4]
             h, w, _ = frame.shape
             cx, cy = int(nose.x * w), int(nose.y * h)
-            cv2.circle(frame, (cx, cy), 10, (0, 255, 0), -1)
+            
+            # This 'cy' value controls the bird!
+            cv2.circle(frame, (cx, cy), 15, (0, 255, 0), -1)
 
-    cv2.imshow("Tracking", frame)
+    cv2.imshow("Nose Tracker", frame)
     if cv2.waitKey(1) & 0xFF == ord('q'): break
         </pre>
-
-        <div style="font-weight: bold; text-decoration: underline;">Step 3: Integrating PyGame</div>
-        <div>
-            1. Initialize PyGame window.<br>
-            2. In the game loop, replace mouse input with `nose.y`.<br>
-            3. Use simple rectangles for Pipes and a Circle for the bird initially.
-        </div>
-    </div>
-
-    <!-- 5. Learning Outcomes -->
-    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">5. Learning Outcomes</div>
-    <div style="margin-bottom: 20px;">
-        By building this, students learn:
-        <ul>
-            <li>Coordinate Systems (Webcam vs Screen).</li>
-            <li>Real-time event loops.</li>
-            <li>Collision Detection algorithms (AABB).</li>
-        </ul>
     </div>
 
 </body>
