@@ -12,15 +12,16 @@
             SESSION CURRICULUM: DATA SCIENCE & AI 2026
         </div>
         <div style="font-size: 12pt;">
-            <strong>Duration:</strong> 15 Minutes (Flash Talk) | <strong>Level:</strong> Intermediate
+            <strong>Duration:</strong> 45 Minutes (Lecture & Demo) | <strong>Level:</strong> Intermediate
         </div>
     </div>
 
     <!-- 1. Session Objective -->
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">1. SESSION OBJECTIVE</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        To explain the pipeline of "Data to Decision" and demystify Generative AI. Students should understand that AI is
-        not magic, but math (Probability & Statistics) applied at scale.
+        To provide a deep dive into the "Data to Decision" pipeline and demystify the magic behind Generative AI.
+        Students will understand the mathematical foundations of Neural Networks and the practical applications of Large
+        Language Models (LLMs) and Diffusion Models.
     </div>
 
     <!-- 2. Agenda Breakdown -->
@@ -33,38 +34,56 @@
             <th width="80%">Topic & Key Talking Points</th>
         </tr>
         <tr>
-            <td>0:00 - 4:00</td>
+            <td>0:00 - 10:00</td>
             <td>
-                <strong>The Data Pipeline</strong><br>
-                - Collection -> Cleaning -> EDA -> Modeling -> Deployment.<br>
-                - "Garbage In, Garbage Out" principle.<br>
-                - Example: How Netflix recommends movies.
+                <strong>The Data Science Lifecycle (Real-World Example)</strong><br>
+                - <strong>Scenario:</strong> "How Netflix Recommends Movies."<br>
+                - <strong>Collection:</strong> Logs, ratings, watch time.<br>
+                - <strong>Cleaning/EDA:</strong> Handling missing values, outliers.<br>
+                - <strong>Modeling:</strong> Collaborative Filtering vs Content-Based Filtering.<br>
+                - <strong>Deployment:</strong> A/B Testing and production scale.
             </td>
         </tr>
         <tr>
-            <td>4:00 - 8:00</td>
+            <td>10:00 - 20:00</td>
             <td>
-                <strong>Neural Networks 101</strong><br>
-                - Biological Neuron vs Artificial Neuron.<br>
-                - Layers (Input, Hidden, Output).<br>
-                - <strong>Visual Demo:</strong> Reference the "Real Model NN" project in Zone B.
+                <strong>Neural Networks Demystified (Visual/Interactive)</strong><br>
+                - <strong>The Neuron:</strong> Inputs, Weights, Bias, Activation Function (ReLU/Sigmoid).<br>
+                - <strong>Architecture:</strong> Input Layer -> Hidden Layers (black box) -> Output Layer.<br>
+                - <strong>Training:</strong> Loss Functions (MSE) and Backpropagation (Gradient Descent) explained
+                simply as "learning from mistakes."<br>
+                - <strong>Demo:</strong> Reference "Playground.tensorflow.org".
             </td>
         </tr>
         <tr>
-            <td>8:00 - 12:00</td>
+            <td>20:00 - 35:00</td>
             <td>
-                <strong>The Generative AI Boom</strong><br>
-                - Discriminative AI (Classifying functionality) vs Generative AI (Creating new data).<br>
-                - How LLMs predict the "Next Word".<br>
-                - How Diffusion Models remove noise to create images (AI Artist Zone C).
+                <strong>The Generative AI Revolution</strong><br>
+                - <strong>Discriminative vs Generative:</strong> "Is this a cat?" vs "Draw a cat."<br>
+                - <strong>LLMs (GPT):</strong> The Transformer architecture (Attention Mechanism) and predicting the
+                next token.<br>
+                - <strong>Image Gen:</strong> Diffusion Models (Adding noise -> Removing noise) explained via the Zone C
+                "AI Artist" project.<br>
+                - <strong>RAG (Retrieval Augmented Generation):</strong> Giving AI a "textbook" to reduce
+                hallucinations.
             </td>
         </tr>
         <tr>
-            <td>12:00 - 15:00</td>
+            <td>35:00 - 40:00</td>
             <td>
-                <strong>Ethics & Careers</strong><br>
-                - Bias in Data.<br>
-                - Career: Data Analyst vs Data Engineer vs ML Scientist.
+                <strong>Ethics, Bias & The Future</strong><br>
+                - <strong>Bias:</strong> Algorithmic discrimination (e.g., Hiring AI showing gender bias).<br>
+                - <strong>Deepfakes:</strong> The erosion of truth.<br>
+                - <strong>Job Market:</strong> AI as a Co-pilot, not a replacement.
+            </td>
+        </tr>
+        <tr>
+            <td>40:00 - 45:00</td>
+            <td>
+                <strong>Roadmap & Career Q&A</strong><br>
+                - <strong>Roles:</strong> Data Analyst vs Data Engineer vs ML Ops vs Research Scientist.<br>
+                - <strong>Stack:</strong> Python, SQL, Pandas, PyTorch/TensorFlow.<br>
+                - <strong>Q&A Session.</strong>
             </td>
         </tr>
     </table>
@@ -73,9 +92,11 @@
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">3. KEY CONCEPTS TO COVER</div>
     <div style="margin-bottom: 20px;">
         <ul>
-            <li><strong>Supervised vs Unsupervised Learning:</strong> Labeled vs Unlabeled data.</li>
-            <li><strong>Overfitting:</strong> Memorizing data vs Learning patterns.</li>
-            <li><strong>Prompt Engineering:</strong> The new skill set for 2026.</li>
+            <li><strong>Supervised vs Unsupervised:</strong> Labeled data (Spam detection) vs Pattern finding (Customer
+                segmentation).</li>
+            <li><strong>Overfitting/Underfitting:</strong> The Goldilocks problem of modeling.</li>
+            <li><strong>Feature Engineering:</strong> The art of creating meaningful inputs.</li>
+            <li><strong>Prompt Engineering:</strong> Techniques (Zero-shot, Few-shot, Chain-of-Thought).</li>
         </ul>
     </div>
 
@@ -83,9 +104,9 @@
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">4. STUDENT RESOURCES</div>
     <div>
         <ul>
-            <li><strong>Libraries:</strong> Pandas, Scikit-Learn, TensorFlow, PyTorch.</li>
-            <li><strong>Datasets:</strong> Kaggle, UC Irvine Repo.</li>
-            <li><strong>Tools:</strong> Jupyter Notebooks, Google Colab.</li>
+            <li><strong>Libraries:</strong> Scikit-Learn (ML), Pandas (Data), HuggingFace (Transformers).</li>
+            <li><strong>Datasets:</strong> Kaggle, UC Irvine Repository, Google Dataset Search.</li>
+            <li><strong>Practice:</strong> Google Colab (Free GPUs), Fast.ai courses.</li>
         </ul>
     </div>
 

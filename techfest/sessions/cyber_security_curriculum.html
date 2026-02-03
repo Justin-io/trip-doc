@@ -12,15 +12,16 @@
             SESSION CURRICULUM: CYBERSECURITY 2026
         </div>
         <div style="font-size: 12pt;">
-            <strong>Duration:</strong> 15 Minutes (Flash Talk) | <strong>Level:</strong> Beginner to Intermediate
+            <strong>Duration:</strong> 45 Minutes (Workshop) | <strong>Level:</strong> Beginner to Intermediate
         </div>
     </div>
 
     <!-- 1. Session Objective -->
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">1. SESSION OBJECTIVE</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        To demystify modern cyber threats and defensive strategies for students. Moving beyond "don't share password" to
-        understanding attack vectors like Social Engineering, IoT vulnerabilities, and AI-driven phishing.
+        To provide a comprehensive overview of modern cyber threats and defensive strategies. This session moves beyond
+        basic awareness into technical demonstrations of how attacks happen (OSINT, Phishing, Injection) and how to
+        build a robust "Personal Defense System."
     </div>
 
     <!-- 2. Agenda Breakdown -->
@@ -33,39 +34,51 @@
             <th width="80%">Topic & Key Talking Points</th>
         </tr>
         <tr>
-            <td>0:00 - 3:00</td>
+            <td>0:00 - 10:00</td>
             <td>
-                <strong>The Threat Landscape (Stats & Shock)</strong><br>
-                - Global cost of cybercrime.<br>
-                - Real-world breach examples (e.g., Recent College/Company hacks).<br>
-                - <em>Hook:</em> "Your password is probably already on the Dark Web."
+                <strong>The Threat Landscape & "Why You?"</strong><br>
+                - <strong>Global Stats:</strong> Ransomware costs, attack frequency (every 39 seconds).<br>
+                - <strong>Case Studies:</strong> Breakdown of a recent major breach (e.g., 23andMe or a local
+                university).<br>
+                - <strong>The Myth:</strong> "I have nothing to hide." (Explain data aggregation and identity theft).
             </td>
         </tr>
         <tr>
-            <td>3:00 - 7:00</td>
+            <td>10:00 - 20:00</td>
             <td>
-                <strong>The Human Firewall (Social Engineering)</strong><br>
-                - Phishing vs Vishing vs Smishing.<br>
-                - <strong>Demo:</strong> Show a cloned "Instagram Login Page" (from the Cyber-Gym zone).<br>
-                - How OSINT (Open Source Intelligence) is used to track you.
+                <strong>Social Engineering & OSINT (Live Demo)</strong><br>
+                - <strong>Phishing vs Spear Phishing:</strong> The psychology of clicking.<br>
+                - <strong>OSINT Demo:</strong> Pick a volunteer or public figure and show how much data is visible
+                (Maltego/Google Dorks).<br>
+                - <strong>The "Evil Twin":</strong> Technical explanation of the WiFi vulnerability demoed in Zone B.
             </td>
         </tr>
         <tr>
-            <td>7:00 - 11:00</td>
+            <td>20:00 - 30:00</td>
             <td>
-                <strong>AI in CyberSec (The Double-Edged Sword)</strong><br>
-                - Attackers: Using ChatGPT to write malware/phishing emails.<br>
-                - Defenders: using AI to detect anomalies.<br>
-                - Deepfakes: The new frontier of identity theft.
+                <strong>AI in CyberSec: The New Arms Race</strong><br>
+                - <strong>Offense:</strong> Using LLMs (WormGPT) to write polymorphic malware and perfect phishing
+                emails.<br>
+                - <strong>Defense:</strong> AI-driven anomaly detection (SIEM systems).<br>
+                - <strong>Deepfakes:</strong> Real-time voice/video cloning attacks and verification challenges.
             </td>
         </tr>
         <tr>
-            <td>11:00 - 15:00</td>
+            <td>30:00 - 40:00</td>
             <td>
-                <strong>Practical Defense (Takeaways)</strong><br>
-                - Why 2FA is non-negotiable.<br>
-                - Password Managers.<br>
-                - Q&A.
+                <strong>Practical Defense Workshop</strong><br>
+                - <strong>Hands-on:</strong> Setting up a Password Manager (Bitwarden/1Password).<br>
+                - <strong>2FA/MFA:</strong> SMS vs Authenticator Apps vs Hardware Keys (YubiKey).<br>
+                - <strong>Browser Hygiene:</strong> Ad-blockers, clearing cookies, checking SSL certificates.
+            </td>
+        </tr>
+        <tr>
+            <td>40:00 - 45:00</td>
+            <td>
+                <strong>Career Roadmap & Q&A</strong><br>
+                - <strong>Paths:</strong> Red Team (Offense) vs Blue Team (Defense) vs Bug Bounty Hunting.<br>
+                - <strong>Certs:</strong> CompTIA Security+ -> CEH -> OSCP.<br>
+                - <strong>Resource:</strong> "TryHackMe" & "HackTheBox" guidance.
             </td>
         </tr>
     </table>
@@ -74,9 +87,10 @@
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">3. KEY CONCEPTS TO COVER</div>
     <div style="margin-bottom: 20px;">
         <ul>
-            <li><strong>CIA Triad:</strong> Confidentiality, Integrity, Availability.</li>
-            <li><strong>Zero Trust Architecture:</strong> "Never trust, always verify."</li>
-            <li><strong>The "Evil Twin" Attack:</strong> Explain the WiFi vulnerability being demoed in Zone B.</li>
+            <li><strong>CIA Triad:</strong> Confidentiality, Integrity, Availability (The holy trinity).</li>
+            <li><strong>Zero Trust Architecture:</strong> "Never trust, always verify" - even inside the network.</li>
+            <li><strong>Man-in-the-Middle (MitM):</strong> How data is intercepted on public WiFi.</li>
+            <li><strong>Encryption:</strong> Symmetric vs Asymmetric (Public/Private Key) basics.</li>
         </ul>
     </div>
 
@@ -84,9 +98,10 @@
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">4. STUDENT RESOURCES</div>
     <div>
         <ul>
-            <li><strong>Tool to learn:</strong> Kali Linux, Burp Suite, Wireshark.</li>
-            <li><strong>Certification Path:</strong> CompTIA Security+ -> CEH -> OSCP.</li>
-            <li><strong>Site:</strong> HaveIBeenPwned.com</li>
+            <li><strong>Tools to Learn:</strong> Kali Linux (OS), Wireshark (Network Analysis), Burp Suite (Web
+                Pentesting).</li>
+            <li><strong>Websites:</strong> HaveIBeenPwned.com, OWASP Top 10.</li>
+            <li><strong>Books:</strong> "The Art of Invisibility" by Kevin Mitnick.</li>
         </ul>
     </div>
 

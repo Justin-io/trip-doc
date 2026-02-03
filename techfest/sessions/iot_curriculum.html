@@ -12,15 +12,16 @@
             SESSION CURRICULUM: IoT DASHBOARDS & HARDWARE
         </div>
         <div style="font-size: 12pt;">
-            <strong>Duration:</strong> 15 Minutes (Flash Talk) | <strong>Level:</strong> Engineering/Hardware
+            <strong>Duration:</strong> 45 Minutes (Workshop & Demo) | <strong>Level:</strong> Engineering/Hardware
         </div>
     </div>
 
     <!-- 1. Session Objective -->
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">1. SESSION OBJECTIVE</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        To breakdown the "IoT Water Dispenser" project (Zone D) technically. Explaining how a button click on a website
-        turns on a physical motor 10 meters away instantly.
+        To provide a comprehensive breakdown of the "IoT Water Dispenser" project. Students will learn the full stack of
+        IoT: from wiring sensors and microcontrollers (ESP32) to standard protocols (MQTT) and cloud visualization
+        (Dashboards).
     </div>
 
     <!-- 2. Agenda Breakdown -->
@@ -33,38 +34,57 @@
             <th width="80%">Topic & Key Talking Points</th>
         </tr>
         <tr>
-            <td>0:00 - 3:00</td>
+            <td>0:00 - 10:00</td>
             <td>
-                <strong>The IoT Architecture (3 Layers)</strong><br>
-                1. Perception Layer (Sensors/Actuators - The Pump).<br>
-                2. Network Layer (Transport - WiFi/MQTT).<br>
-                3. Application Layer (Dashboard - The Web App).
+                <strong>Introduction to IoT Architecture</strong><br>
+                - <strong>Definition:</strong> Connecting physical objects to the digital world.<br>
+                - <strong>The 4 Layers:</strong>
+                <br>1. Perception (Sensors/Actuators - The "Skin" & "Muscles").
+                <br>2. Network (Connectivity - WiFi, BLE, LoRaWAN).
+                <br>3. Processing (Cloud/Edge - The "Brain").
+                <br>4. Application (Dashboard/App - The Interface).
             </td>
         </tr>
         <tr>
-            <td>3:00 - 8:00</td>
+            <td>10:00 - 20:00</td>
             <td>
-                <strong>Protocols: HTTP vs MQTT</strong><br>
-                - Why typical HTTP (Request/Response) is bad for real-time IoT.<br>
-                - <strong>MQTT Pub/Sub Model:</strong> Broker, Publisher, Subscriber.<br>
-                - <em>Demo:</em> Showing the HiveMQ dashboard receiving messages.
+                <strong>Deep Dive: Communication Protocols</strong><br>
+                - <strong>HTTP vs MQTT:</strong> Why standard Request/Response is too heavy/slow for IoT.<br>
+                - <strong>MQTT (Message Queuing Telemetry Transport):</strong>
+                <br>- <em>Broker:</em> The post office (HiveMQ/Mosquitto).
+                <br>- <em>Pub/Sub Model:</em> Decoupling devices.
+                <br>- <em>Topics:</em> Directory structure (e.g., `home/kitchen/temp`).
+                <br>- <em>QoS:</em> Levels 0, 1, 2 (Fire-and-forget vs Guaranteed).
             </td>
         </tr>
         <tr>
-            <td>8:00 - 12:00</td>
+            <td>20:00 - 30:00</td>
             <td>
-                <strong>The Hardware Brain (ESP32)</strong><br>
-                - Why ESP32 over Arduino Uno? (Built-in WiFi/Bluetooth).<br>
-                - GPIO Pins and Logical Levels (3.3V vs 5V).<br>
-                - Controlling AC/High-Current DC loads using <strong>Relays</strong> (Opto-isolation).
+                <strong>The Hardware Brain (ESP32) & Circuit Logic</strong><br>
+                - <strong>ESP32 vs Arduino Uno:</strong> Dual-core, built-in WiFi/BT, higher clock speed.<br>
+                - <strong>Safety Logic:</strong> Why we need 3.3V logic.<br>
+                - <strong>Relays:</strong> Using low-voltage signals to control high-voltage/current devices (like the
+                Water Pump). Opto-isolation explained.
             </td>
         </tr>
         <tr>
-            <td>12:00 - 15:00</td>
+            <td>30:00 - 40:00</td>
             <td>
-                <strong>Data Visualization</strong><br>
-                - How to plot sensor data in real-time (e.g., Temperature/Usage stats).<br>
-                - Tools: Grafana, Node-RED, ThingsBoard.
+                <strong>Live Code Walkthrough (The "Water Dispenser")</strong><br>
+                - <strong>Arduino/C++:</strong> Walkthrough of the code used in Zone D.<br>
+                - <strong>Connection Sequence:</strong> `WiFi.begin()` -> `client.connect()` ->
+                `client.subscribe()`.<br>
+                - <strong>Callback Function:</strong> Handling incoming messages to trigger GPIO pins.<br>
+                - <strong>Dashboarding:</strong> Showing data on ThingsBoard or Grafana.
+            </td>
+        </tr>
+        <tr>
+            <td>40:00 - 45:00</td>
+            <td>
+                <strong>Future Trends & Q&A</strong><br>
+                - <strong>Edge Computing:</strong> AI on the chip (TinyML).<br>
+                - <strong>5G & NB-IoT:</strong> Massive machine type communication.<br>
+                - <strong>Q&A.</strong>
             </td>
         </tr>
     </table>
@@ -73,9 +93,10 @@
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">3. KEY CONCEPTS TO COVER</div>
     <div style="margin-bottom: 20px;">
         <ul>
-            <li><strong>Latency:</strong> The delay between command and action.</li>
-            <li><strong>QoS (Quality of Service):</strong> MQTT levels 0, 1, 2.</li>
-            <li><strong>Edge Computing:</strong> Processing data on the chip vs in the cloud.</li>
+            <li><strong>Latency:</strong> Critical in valid control systems.</li>
+            <li><strong>Power Consumption:</strong> Deep Sleep modes for battery devices.</li>
+            <li><strong>Security:</strong> TLS/SSL for MQTT, not sending plain text.</li>
+            <li><strong>OTA (Over-The-Air) Updates:</strong> Updating firmware remotely.</li>
         </ul>
     </div>
 
@@ -83,9 +104,10 @@
     <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">4. STUDENT RESOURCES</div>
     <div>
         <ul>
-            <li><strong>Hardware:</strong> ESP32 Dev Kit V1, NodeMCU.</li>
-            <li><strong>Platform:</strong> Arduino IDE, PlatformIO.</li>
-            <li><strong>Cloud:</strong> Blynk, HiveMQ, AWS IoT Core.</li>
+            <li><strong>Hardware:</strong> ESP32 Dev Kit, Raspberry Pi Zero W, Breadboards.</li>
+            <li><strong>Software:</strong> VS Code + PlatformIO (Better than Arduino IDE), Node-RED (Visual flow
+                coding).</li>
+            <li><strong>Cloud:</strong> Blynk (Easy), AWS IoT Core (Pro), HiveMQ (Broker).</li>
         </ul>
     </div>
 
