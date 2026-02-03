@@ -1,77 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>IoT Smart Hydration Details</title>
-    <link rel="stylesheet" href="../../style.css">
+    <title>IoT Smart Hydration</title>
 </head>
 
-<body>
-    <a href="../index.html" class="back-link no-print">&larr; Back</a>
+<body style="font-family: 'Times New Roman', Serif; font-size: 12pt; line-height: 1.5; margin: 1in;">
 
-    <div class="page">
-        <div class="header">
-            PROJECT TECHNICAL SHEET: IoT SMART HYDRATION
-        </div>
-
-        <div class="doc-meta">
-            <strong>Zone:</strong> D (Dev Sprints)<br>
-            <strong>Project ID:</strong> D-02<br>
-            <strong>Hardware:</strong> ESP32 / Arduino<br>
-            <strong>Date:</strong> 03-02-2026
-        </div>
-
-        <div class="section">
-            <div class="sub-header">1. Project Overview</div>
-            A functional IoT prototype demonstrating the "FestCoin" economy in the real world. Users scan a QR code at
-            the water cooler, which deducts 10 FestCoins from their cloud balance and triggers a hardware relay to
-            dispense 200ml of water.
-        </div>
-
-        <div class="section">
-            <div class="sub-header">2. User Flow</div>
-            <ol>
-                <li>User approaches the "Smart Cooler".</li>
-                <li>Scans the static QR code on the machine using the FestApp.</li>
-                <li>Confirms payment (10 Coins).</li>
-                <li>App sends HTTP POST request to the server.</li>
-                <li>Server validates balance and sends MQTT message to the Water Cooler.</li>
-                <li>Pump activates for 5 seconds (calibrated for 200ml).</li>
-            </ol>
-        </div>
-
-        <div class="section">
-            <div class="sub-header">3. Hardware Stack</div>
-            <ul>
-                <li><strong>Microcontroller:</strong> ESP32 (Wi-Fi enabled).</li>
-                <li><strong>Actuator:</strong> 5V/12V Relay Module controlling a Submersible Water Pump.</li>
-                <li><strong>Power:</strong> 12V DC Adapter.</li>
-                <li><strong>Display:</strong> 16x2 LCD showing "Ready" or "Dispensing...".</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <div class="sub-header">4. Protocol</div>
-            <ul>
-                <li><strong>Communication:</strong> MQTT (Message Queuing Telemetry Transport).</li>
-                <li><strong>Broker:</strong> Mosquitto (Local) or HiveMQ (Cloud).</li>
-                <li><strong>Topic:</strong> <code>nexus/zone_d/cooler/command</code> → Payload:
-                    <code>{"action": "dispense"}</code></li>
-            </ul>
-        </div>
-
-        <div class="signatories">
-            <div class="sign-box">
-                ____________________<br>
-                <strong>Hardware Lead</strong>
-            </div>
-            <div class="sign-box">
-                ____________________<br>
-                <strong>Faculty Coordinator</strong>
-            </div>
-        </div>
+    <div
+        style="text-align: center; margin-bottom: 2em; text-transform: uppercase; font-weight: bold; text-decoration: underline;">
+        Project Details: IoT Smart Hydration
     </div>
+
+    <table width="100%" style="margin-bottom: 20px; border: 1px solid black; border-collapse: collapse;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px;"><strong>Zone:</strong> D (Dev Sprints)</td>
+            <td style="border: 1px solid black; padding: 5px;"><strong>ID:</strong> D-02</td>
+        </tr>
+    </table>
+
+    <div style="font-weight: bold; margin-bottom: 5px;">1. Overview</div>
+    <div style="text-align: justify; margin-bottom: 20px;">
+        A functional Real-World IoT implementation where students spend digital "FestCoins" to dispense physical drinks
+        (Water/Juice).
+    </div>
+
+    <div style="font-weight: bold; margin-bottom: 5px;">2. Workflow</div>
+    <div style="margin-bottom: 20px;">
+        <ol>
+            <li>User scans QR on standard Water Cooler.</li>
+            <li>App confirms 10 Coin payment via Cloud API.</li>
+            <li>Server sends MQTT payload to ESP32.</li>
+            <li>ESP32 triggers Relay to turn on Pump for 5s (200ml).</li>
+        </ol>
+    </div>
+
+    <div style="font-weight: bold; margin-bottom: 5px;">3. Hardware Stack</div>
+    <div style="margin-bottom: 20px;">
+        <ul>
+            <li><strong>Controller:</strong> ESP32 (WiFi + MQTT).</li>
+            <li><strong>Actuator:</strong> 5V Relay + Submersible Pump.</li>
+            <li><strong>Power:</strong> 12V DC Supply.</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <div style="font-weight: bold;">Faculty In-Charge:</div>
+        <div>________________________</div>
+    </div>
+
 </body>
 
 </html>

@@ -1,77 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Sonic Identity Details</title>
-    <link rel="stylesheet" href="../../style.css">
+    <title>Sonic Identity</title>
 </head>
 
-<body>
-    <a href="../index.html" class="back-link no-print">&larr; Back</a>
+<body style="font-family: 'Times New Roman', Serif; font-size: 12pt; line-height: 1.5; margin: 1in;">
 
-    <div class="page">
-        <div class="header">
-            PROJECT TECHNICAL SHEET: SONIC IDENTITY
-        </div>
-
-        <div class="doc-meta">
-            <strong>Zone:</strong> C (The AI Studio)<br>
-            <strong>Project ID:</strong> C-02<br>
-            <strong>Api Integration:</strong> MusicGen / ElevenLabs<br>
-            <strong>Date:</strong> 03-02-2026
-        </div>
-
-        <div class="section">
-            <div class="sub-header">1. Project Overview</div>
-            "Sonic Identity" is an audio-generative experience that creates a unique 15-second melody based on a user's
-            personal data. By converting text inputs (Name, Hometown, Mood) into musical parameters, users can "hear"
-            their digital identity.
-        </div>
-
-        <div class="section">
-            <div class="sub-header">2. User Experience</div>
-            <ol>
-                <li>User inputs their Name and selects a "Vibe" (e.g., Cyberpunk, Lo-Fi, Classical).</li>
-                <li>The system constructs a prompt: <em>"A [Vibe] melody representing [Name], cinematic, 120bpm"</em>.
-                </li>
-                <li>The AI generates a short audio clip.</li>
-                <li>User listens via headphones and receives a download link.</li>
-            </ol>
-        </div>
-
-        <div class="section">
-            <div class="sub-header">3. Technical Implementation</div>
-            <ul>
-                <li><strong>Core Model:</strong> Meta's <strong>MusicGen</strong> (hosted locally via HuggingFace) or
-                    <strong>ElevenLabs</strong> Sound Generation API.</li>
-                <li><strong>Latency Management:</strong> Pre-generation of base layers to ensure output is ready under
-                    30 seconds.</li>
-                <li><strong>Hardware:</strong> PC with NVIDIA RTX 3060 or higher (if local) or Cloud API access.</li>
-                <li><strong>Audio:</strong> High-quality headphones and DAC.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <div class="sub-header">4. Implementation Plan</div>
-            <ul>
-                <li><strong>Week 1:</strong> Test MusicGen Small model on local hardware.</li>
-                <li><strong>Week 2:</strong> Build the UI wrapper (Streamlit or Gradio).</li>
-                <li><strong>Week 3:</strong> Optimize inference speed.</li>
-            </ul>
-        </div>
-
-        <div class="signatories">
-            <div class="sign-box">
-                ____________________<br>
-                <strong>Faculty Coordinator</strong>
-            </div>
-            <div class="sign-box">
-                ____________________<br>
-                <strong>Event Head</strong>
-            </div>
-        </div>
+    <div
+        style="text-align: center; margin-bottom: 2em; text-transform: uppercase; font-weight: bold; text-decoration: underline;">
+        Project Details: Sonic Identity
     </div>
+
+    <table width="100%" style="margin-bottom: 20px; border: 1px solid black; border-collapse: collapse;">
+        <tr>
+            <td style="border: 1px solid black; padding: 5px;"><strong>Zone:</strong> C (AI Studio)</td>
+            <td style="border: 1px solid black; padding: 5px;"><strong>ID:</strong> C-02</td>
+        </tr>
+    </table>
+
+    <div style="font-weight: bold; margin-bottom: 5px;">1. Overview</div>
+    <div style="text-align: justify; margin-bottom: 20px;">
+        Converts user data (Name, Hometown, Mood) into a unique 15-second audio melody using Generative AI models.
+    </div>
+
+    <div style="font-weight: bold; margin-bottom: 5px;">2. Tech Stack</div>
+    <div style="margin-bottom: 20px;">
+        <ul>
+            <li><strong>Model:</strong> MusicGen (Meta) or ElevenLabs API.</li>
+            <li><strong>Input:</strong> Text Prompts constructed from user bio.</li>
+            <li><strong>Output:</strong> WAV/MP3 file.</li>
+        </ul>
+    </div>
+
+    <div style="font-weight: bold; margin-bottom: 5px;">3. Hardware</div>
+    <div style="margin-bottom: 20px;">
+        <ul>
+            <li>High-Performance PC (RTX 3060+ if local).</li>
+            <li>Studio Quality Headphones.</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <div style="font-weight: bold;">Faculty In-Charge:</div>
+        <div>________________________</div>
+    </div>
+
 </body>
 
 </html>
