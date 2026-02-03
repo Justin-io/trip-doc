@@ -22,7 +22,8 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 800px;
+            /* Widened for better view */
             width: 100%;
         }
 
@@ -42,13 +43,20 @@
             padding-bottom: 5px;
         }
 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
 
         li {
-            margin-bottom: 15px;
+            margin-bottom: 0;
+            /* Handled by grid gap */
         }
 
         a {
@@ -68,9 +76,10 @@
         }
 
         a span {
-            float: right;
+            display: block;
             opacity: 0.8;
-            font-size: 0.9em;
+            font-size: 0.85em;
+            margin-top: 3px;
         }
 
         .back-link {
@@ -80,6 +89,9 @@
             padding: 8px 15px;
             font-size: 0.9rem;
             width: auto;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
         }
 
         .back-link:hover {
@@ -93,87 +105,61 @@
     <div class="container">
         <a href="../index.html" class="back-link">&larr; Back to Main Index</a>
 
-        <h1>Techfest Documents Repository</h1>
+        <h1>Techfest Docs & Developer Guides</h1>
 
-        <h2>Core Documents</h2>
-        <ul>
-            <li>
-                <a href="project_nexus_proposal.html">
-                    1. Project Nexus Proposal
-                    <span>(V2.0)</span>
-                </a>
-            </li>
-        </ul>
+        <h2>Core Proposals</h2>
+        <div class="grid">
+            <a href="project_nexus_proposal.html">
+                1. Project Nexus Master Proposal (v2.0)
+                <span>Includes 27-Project Roster & Coin Economy SVG</span>
+            </a>
+        </div>
 
-        <h2>Zone A: The Arena</h2>
-        <ul>
-            <li>
-                <a href="projects/zone_a_deadshot.html">
-                    2. Deadshot.io Tournament
-                    <span>(Rules & Setup)</span>
-                </a>
-            </li>
-            <li>
-                <a href="projects/zone_a_flappy.html">
-                    3. Nose-Nav Flappy Bird
-                    <span>(Tech Sheet)</span>
-                </a>
-            </li>
-            <li>
-                <a href="projects/zone_a_cloak.html">
-                    4. Invisible Cloak
-                    <span>(Setup Guide)</span>
-                </a>
-            </li>
-        </ul>
+        <h2>Session Curriculums (The "Teach" Part)</h2>
+        <div class="grid">
+            <a href="sessions/cyber_security_curriculum.html">
+                Cyber Security 2026
+                <span>15-min Flash Talk Agenda</span>
+            </a>
+            <a href="sessions/data_science_curriculum.html">
+                Data Science & AI
+                <span>Pipeline & Ethics Flash Talk</span>
+            </a>
+            <a href="sessions/iot_curriculum.html">
+                IoT Dashboards
+                <span>Technical breakdown of the Water Dispenser</span>
+            </a>
+        </div>
 
-        <h2>Zone B: The Cyber-Lab</h2>
-        <ul>
-            <li>
-                <a href="projects/zone_b_phishing.html">
-                    5. The Phishing Tank
-                    <span>(Challenges)</span>
-                </a>
-            </li>
-            <li>
-                <a href="projects/zone_b_password.html">
-                    6. Password Strength Meter
-                    <span>(Logic)</span>
-                </a>
-            </li>
-        </ul>
+        <h2>Zone Project SRS & Developer Guides (The "Build" Part)</h2>
 
-        <h2>Zone C: The AI Studio</h2>
-        <ul>
-            <li>
-                <a href="projects/zone_c_ai_art.html">
-                    7. AI Artist & Meme Maker
-                    <span>(System)</span>
-                </a>
-            </li>
-            <li>
-                <a href="projects/zone_c_sonic.html">
-                    8. Sonic Identity
-                    <span>(Music Gen)</span>
-                </a>
-            </li>
-        </ul>
+        <h3>Zone A: The Arena</h3>
+        <div class="grid">
+            <a href="projects/zone_a_deadshot.html">Deadshot.io Tournament Details</a>
+            <a href="projects/zone_a_flappy.html" style="background-color: #28a745;"><strong>Nose-Nav Flappy Bird (Full
+                    SRS)</strong><br><span>Includes Python/MediaPipe Code</span></a>
+            <a href="projects/zone_a_cloak.html">Invisible Cloak Setup</a>
+        </div>
 
-        <h2>Zone D: Dev Sprints</h2>
-        <ul>
-            <li>
-                <a href="projects/zone_d_sprint.html">
-                    9. 15-Minute Code Sprint
-                    <span>(Rules)</span>
-                </a>
-            </li>
-            <li>
-                <a href="projects/zone_d_iot.html">
-                    10. IoT Smart Hydration
-                    <span>(Blueprints)</span>
-                </a>
-            </li>
-        </ul>
+        <h3>Zone B: The Cyber-Lab</h3>
+        <div class="grid">
+            <a href="projects/zone_b_phishing.html">The Phishing Tank Challenges</a>
+            <a href="projects/zone_b_password.html">Password Strength Meter Logic</a>
+        </div>
+
+        <h3>Zone C: The AI Studio</h3>
+        <div class="grid">
+            <a href="projects/zone_c_ai_art.html" style="background-color: #28a745;"><strong>AI Artist & Meme Maker
+                    (Full SRS)</strong><br><span>Includes Flask/OpenAI Code</span></a>
+            <a href="projects/zone_c_sonic.html">Sonic Identity (Music Gen) Specs</a>
+        </div>
+
+        <h3>Zone D: Dev Sprints</h3>
+        <div class="grid">
+            <a href="projects/zone_d_sprint.html">15-Minute Code Sprint Rules</a>
+            <a href="projects/zone_d_iot.html" style="background-color: #28a745;"><strong>IoT Smart Hydration (Full
+                    SRS)</strong><br><span>Includes ESP32/MQTT Code</span></a>
+        </div>
 
     </div>
 

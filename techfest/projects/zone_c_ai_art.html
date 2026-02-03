@@ -2,51 +2,98 @@
 <html>
 
 <head>
-    <title>AI Artist & Meme Maker</title>
+    <title>AI Artist: Developer Guide</title>
 </head>
 
 <body style="font-family: 'Times New Roman', Serif; font-size: 12pt; line-height: 1.5; margin: 1in;">
 
     <div
         style="text-align: center; margin-bottom: 2em; text-transform: uppercase; font-weight: bold; text-decoration: underline;">
-        Project Details: AI Artist & Meme Maker
+        Project SRS: AI Artist & Meme Maker
     </div>
 
-    <table width="100%" style="margin-bottom: 20px; border: 1px solid black; border-collapse: collapse;">
-        <tr>
-            <td style="border: 1px solid black; padding: 5px;"><strong>Zone:</strong> C (AI Studio)</td>
-            <td style="border: 1px solid black; padding: 5px;"><strong>ID:</strong> C-01</td>
-        </tr>
-    </table>
-
-    <div style="font-weight: bold; margin-bottom: 5px;">1. Overview</div>
+    <!-- 1. System Overview -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">1. System Overview</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        A generative art station where attendees input creative prompts to generate custom stickers or memes using
-        Stable Diffusion or DALL-E.
+        A kiosk application that allows users to type a text prompt and receive a unique, AI-generated image. This
+        project demonstrates <strong>Prompt Engineering</strong> and <strong>API Integration</strong> with Generative
+        Models.
     </div>
 
-    <div style="font-weight: bold; margin-bottom: 5px;">2. User Flow</div>
-    <div style="margin-bottom: 20px;">
-        <ol>
-            <li>User types prompt (e.g., "Cyberpunk cat").</li>
-            <li>System calls AI API (OpenAI/Stability).</li>
-            <li>Image generated in 15 seconds.</li>
-            <li>QR Code displayed for download.</li>
-        </ol>
-    </div>
-
-    <div style="font-weight: bold; margin-bottom: 5px;">3. Requirements</div>
+    <!-- 2. Technology Stack -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">2. Technology Stack</div>
     <div style="margin-bottom: 20px;">
         <ul>
-            <li>High-Speed Internet (API Access).</li>
-            <li>Tablet for Input.</li>
-            <li>Secondary Monitor for Display.</li>
+            <li><strong>Frontend:</strong> HTML5 + Bootstrap (or React) for a clean UI.</li>
+            <li><strong>Backend:</strong> Python Flask (to hide API keys).</li>
+            <li><strong>AI Service:</strong> OpenAI DALL-E 3 API or Stability.ai API.</li>
+            <li><strong>Storage:</strong> Local folder or Cloudinary (for QR code hosting).</li>
         </ul>
     </div>
 
-    <div style="margin-top: 40px;">
-        <div style="font-weight: bold;">Faculty In-Charge:</div>
-        <div>________________________</div>
+    <!-- 3. Workflow Logic -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">3. Workflow Logic</div>
+    <div style="margin-bottom: 20px;">
+        <ol>
+            <li><strong>Input:</strong> User types "Cyberpunk cat eating pizza".</li>
+            <li><strong>Request:</strong> Frontend sends POST to Flask backend `[POST] /generate`.</li>
+            <li><strong>Generation:</strong> Backend calls `openai.Image.create`.</li>
+            <li><strong>Receive:</strong> OpenAI returns an Image URL.</li>
+            <li><strong>Display:</strong> Frontend renders the image `&lt;img src="..."&gt;`.</li>
+        </ol>
+    </div>
+
+    <!-- 4. MVP Development Steps -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">4. Student Developer Guide (MVP)
+    </div>
+    <div style="margin-bottom: 20px;">
+
+        <div style="font-weight: bold; text-decoration: underline;">Step 1: Setup Backend</div>
+        <pre style="background: #f4f4f4; padding: 10px; border: 1px solid #ddd; font-size: 10pt;">
+from flask import Flask, request, jsonify
+import openai
+
+app = Flask(__name__)
+openai.api_key = "YOUR_KEY"
+
+@app.route('/generate', methods=['POST'])
+def generate():
+    prompt = request.json.get('prompt')
+    response = openai.Image.create(
+        prompt=prompt,
+        n=1,
+        size="512x512"
+    )
+    return jsonify({'url': response['data'][0]['url']})
+
+if __name__ == '__main__':
+    app.run(port=5000)
+        </pre>
+
+        <div style="font-weight: bold; text-decoration: underline;">Step 2: Frontend JS</div>
+        <div style="font-style: italic;">Make a Fetch call to your local server.</div>
+        <pre style="background: #f4f4f4; padding: 10px; border: 1px solid #ddd; font-size: 10pt;">
+async function makeArt() {
+    const txt = document.getElementById("prompt").value;
+    const res = await fetch("http://localhost:5000/generate", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({prompt: txt})
+    });
+    const data = await res.json();
+    document.getElementById("result").src = data.url;
+}
+        </pre>
+    </div>
+
+    <!-- 5. Learning Outcomes -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">5. Learning Outcomes</div>
+    <div style="margin-bottom: 20px;">
+        <ul>
+            <li>REST API Consumption.</li>
+            <li>Handling Latency (Loading States).</li>
+            <li>Safety Filters (Why did the AI refuse the prompt?).</li>
+        </ul>
     </div>
 
 </body>

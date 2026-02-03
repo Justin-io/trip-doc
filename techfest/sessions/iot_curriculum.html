@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IoT Dashboard Session Curriculum</title>
+</head>
+
+<body style="font-family: 'Times New Roman', Serif; font-size: 12pt; line-height: 1.5; margin: 1in;">
+
+    <div style="text-align: center; margin-bottom: 2em;">
+        <div style="font-size: 16pt; font-weight: bold; text-decoration: underline; margin-bottom: 5px;">
+            SESSION CURRICULUM: IoT DASHBOARDS & HARDWARE
+        </div>
+        <div style="font-size: 12pt;">
+            <strong>Duration:</strong> 15 Minutes (Flash Talk) | <strong>Level:</strong> Engineering/Hardware
+        </div>
+    </div>
+
+    <!-- 1. Session Objective -->
+    <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">1. SESSION OBJECTIVE</div>
+    <div style="text-align: justify; margin-bottom: 20px;">
+        To breakdown the "IoT Water Dispenser" project (Zone D) technically. Explaining how a button click on a website
+        turns on a physical motor 10 meters away instantly.
+    </div>
+
+    <!-- 2. Agenda Breakdown -->
+    <div style="font-weight: bold; text-decoration: underline; margin-bottom: 10px;">2. AGENDA BREAKDOWN</div>
+
+    <table width="100%" border="1" cellpadding="10" cellspacing="0"
+        style="border-collapse: collapse; margin-bottom: 20px;">
+        <tr style="background-color: #f0f0f0;">
+            <th width="20%">Time</th>
+            <th width="80%">Topic & Key Talking Points</th>
+        </tr>
+        <tr>
+            <td>0:00 - 3:00</td>
+            <td>
+                <strong>The IoT Architecture (3 Layers)</strong><br>
+                1. Perception Layer (Sensors/Actuators - The Pump).<br>
+                2. Network Layer (Transport - WiFi/MQTT).<br>
+                3. Application Layer (Dashboard - The Web App).
+            </td>
+        </tr>
+        <tr>
+            <td>3:00 - 8:00</td>
+            <td>
+                <strong>Protocols: HTTP vs MQTT</strong><br>
+                - Why typical HTTP (Request/Response) is bad for real-time IoT.<br>
+                - <strong>MQTT Pub/Sub Model:</strong> Broker, Publisher, Subscriber.<br>
+                - <em>Demo:</em> Showing the HiveMQ dashboard receiving messages.
+            </td>
+        </tr>
+        <tr>
+            <td>8:00 - 12:00</td>
+            <td>
+                <strong>The Hardware Brain (ESP32)</strong><br>
+                - Why ESP32 over Arduino Uno? (Built-in WiFi/Bluetooth).<br>
+                - GPIO Pins and Logical Levels (3.3V vs 5V).<br>
+                - Controlling AC/High-Current DC loads using <strong>Relays</strong> (Opto-isolation).
+            </td>
+        </tr>
+        <tr>
+            <td>12:00 - 15:00</td>
+            <td>
+                <strong>Data Visualization</strong><br>
+                - How to plot sensor data in real-time (e.g., Temperature/Usage stats).<br>
+                - Tools: Grafana, Node-RED, ThingsBoard.
+            </td>
+        </tr>
+    </table>
+
+    <!-- 3. Key Concepts to Cover -->
+    <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">3. KEY CONCEPTS TO COVER</div>
+    <div style="margin-bottom: 20px;">
+        <ul>
+            <li><strong>Latency:</strong> The delay between command and action.</li>
+            <li><strong>QoS (Quality of Service):</strong> MQTT levels 0, 1, 2.</li>
+            <li><strong>Edge Computing:</strong> Processing data on the chip vs in the cloud.</li>
+        </ul>
+    </div>
+
+    <!-- 4. Resources for Students -->
+    <div style="font-weight: bold; text-decoration: underline; margin-bottom: 5px;">4. STUDENT RESOURCES</div>
+    <div>
+        <ul>
+            <li><strong>Hardware:</strong> ESP32 Dev Kit V1, NodeMCU.</li>
+            <li><strong>Platform:</strong> Arduino IDE, PlatformIO.</li>
+            <li><strong>Cloud:</strong> Blynk, HiveMQ, AWS IoT Core.</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

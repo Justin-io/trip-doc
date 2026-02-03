@@ -2,51 +2,106 @@
 <html>
 
 <head>
-    <title>IoT Smart Hydration</title>
+    <title>IoT Smart Hydration: Developer Guide</title>
 </head>
 
 <body style="font-family: 'Times New Roman', Serif; font-size: 12pt; line-height: 1.5; margin: 1in;">
 
     <div
         style="text-align: center; margin-bottom: 2em; text-transform: uppercase; font-weight: bold; text-decoration: underline;">
-        Project Details: IoT Smart Hydration
+        Project SRS: IoT Smart Hydration System
     </div>
 
-    <table width="100%" style="margin-bottom: 20px; border: 1px solid black; border-collapse: collapse;">
-        <tr>
-            <td style="border: 1px solid black; padding: 5px;"><strong>Zone:</strong> D (Dev Sprints)</td>
-            <td style="border: 1px solid black; padding: 5px;"><strong>ID:</strong> D-02</td>
-        </tr>
-    </table>
-
-    <div style="font-weight: bold; margin-bottom: 5px;">1. Overview</div>
+    <!-- 1. System Overview -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">1. System Overview</div>
     <div style="text-align: justify; margin-bottom: 20px;">
-        A functional Real-World IoT implementation where students spend digital "FestCoins" to dispense physical drinks
-        (Water/Juice).
+        A 'Smart Vending' prototype where users pay digital "FestCoins" via a web app to dispense physical liquid
+        (Water/Juice). It demonstrates <strong>Cloud-to-Hardware</strong> communication using <strong>MQTT</strong>.
     </div>
 
-    <div style="font-weight: bold; margin-bottom: 5px;">2. Workflow</div>
-    <div style="margin-bottom: 20px;">
-        <ol>
-            <li>User scans QR on standard Water Cooler.</li>
-            <li>App confirms 10 Coin payment via Cloud API.</li>
-            <li>Server sends MQTT payload to ESP32.</li>
-            <li>ESP32 triggers Relay to turn on Pump for 5s (200ml).</li>
-        </ol>
-    </div>
-
-    <div style="font-weight: bold; margin-bottom: 5px;">3. Hardware Stack</div>
+    <!-- 2. Technology Stack -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">2. Technology Stack</div>
     <div style="margin-bottom: 20px;">
         <ul>
-            <li><strong>Controller:</strong> ESP32 (WiFi + MQTT).</li>
-            <li><strong>Actuator:</strong> 5V Relay + Submersible Pump.</li>
-            <li><strong>Power:</strong> 12V DC Supply.</li>
+            <li><strong>Hardware:</strong> ESP32 (WIFI Microcontroller), 5V Relay Module, 12V Submersible Pump, Jumper
+                Wires.</li>
+            <li><strong>IoT Protocol:</strong> MQTT (Message Queuing Telemetry Transport).</li>
+            <li><strong>Broker:</strong> HiveMQ (Free Public Cloud) or Mosquitto (Local).</li>
+            <li><strong>Web App:</strong> HTML/JS with Paho MQTT Client.</li>
         </ul>
     </div>
 
-    <div style="margin-top: 40px;">
-        <div style="font-weight: bold;">Faculty In-Charge:</div>
-        <div>________________________</div>
+    <!-- 3. Workflow Logic -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">3. Workflow Logic</div>
+    <div style="margin-bottom: 20px;">
+        <ol>
+            <li><strong>Standby:</strong> ESP32 connects to WiFi and Subscribes to topic `nexus/pour`.</li>
+            <li><strong>Trigger:</strong> User scans QR code -> Web App publishes message `{ "action": "ON" }` to
+                `nexus/pour`.</li>
+            <li><strong>Receive:</strong> ESP32 receives the message via WiFi.</li>
+            <li><strong>Actuate:</strong> ESP32 sets GPIO Pin HIGH -> Relay Closes -> Pump turns ON.</li>
+            <li><strong>Dispense:</strong> Wait 5 seconds (calibrated dose).</li>
+            <li><strong>Reset:</strong> Set GPIO Pin LOW -> Relay Opens -> Pump OFF.</li>
+        </ol>
+    </div>
+
+    <!-- 4. MVP Development Steps -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">4. Student Developer Guide (MVP)
+    </div>
+    <div style="margin-bottom: 20px;">
+
+        <div style="font-weight: bold; text-decoration: underline;">Step 1: Circuit Diagram</div>
+        <ul>
+            <li>Connect <strong>VCC</strong> of Relay to <strong>VIN (5V)</strong> of ESP32.</li>
+            <li>Connect <strong>GND</strong> of Relay to <strong>GND</strong> of ESP32.</li>
+            <li>Connect <strong>IN</strong> of Relay to <strong>GPIO 2</strong> (D2).</li>
+            <li>Connect Pump in series with the Relay COM/NO ports and Battery.</li>
+        </ul>
+
+        <div style="font-weight: bold; text-decoration: underline;">Step 2: ESP32 Code (Arduino IDE)</div>
+        <pre style="background: #f4f4f4; padding: 10px; border: 1px solid #ddd; font-size: 10pt;">
+#include <WiFi.h>
+#include <PubSubClient.h>
+
+const char* ssid = "YOUR_WIFI";
+const char* password = "YOUR_PASS";
+const char* mqtt_server = "broker.hivemq.com";
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  // If message received
+  digitalWrite(2, HIGH); // Turn Pump ON
+  delay(5000);           // Wait 5s
+  digitalWrite(2, LOW);  // Turn Pump OFF
+}
+
+void setup() {
+  pinMode(2, OUTPUT);
+  WiFi.begin(ssid, password);
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
+}
+
+void loop() {
+  if (!client.connected()) reconnect();
+  client.loop();
+}
+        </pre>
+
+        <div style="font-weight: bold; text-decoration: underline;">Step 3: The "Pay" Button (Web)</div>
+        <div style="font-style: italic;">Use Paho MQTT JS CDN to publish from browser.</div>
+    </div>
+
+    <!-- 5. Learning Outcomes -->
+    <div style="font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">5. Learning Outcomes</div>
+    <div style="margin-bottom: 20px;">
+        <ul>
+            <li>IoT Protocols (Why MQTT over HTTP?).</li>
+            <li>Relay Logic (Controlling High Voltage with Low Voltage).</li>
+            <li>Asynchronous Communication.</li>
+        </ul>
     </div>
 
 </body>
