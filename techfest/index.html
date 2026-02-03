@@ -3,216 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techfest Documents</title>
+    <title>Techfest Documents Index</title>
     <link rel="stylesheet" href="../style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --neon-blue: #00f3ff;
-            --neon-pink: #ff00ff;
-            --neon-purple: #bd00ff;
-            --dark-panel: rgba(10, 10, 20, 0.8);
-            --grid-color: rgba(0, 243, 255, 0.1);
-        }
-
-        body {
-            background-color: #050510;
-            background-image:
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 50px 50px;
-            color: #e0e0e0;
-            font-family: 'Rajdhani', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .back-link {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: color 0.3s;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-        }
-
-        .back-link:hover {
-            color: var(--neon-blue);
-        }
-
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            padding: 80px 20px;
-        }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: white;
-            text-shadow: 0 0 20px var(--neon-blue);
-        }
-
-        .subtitle {
-            text-align: center;
-            color: var(--neon-purple);
-            letter-spacing: 2px;
-            margin-bottom: 4rem;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-        }
-
-        .docs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .doc-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 2rem;
-            text-decoration: none;
-            color: #e0e0e0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 250px;
-        }
-
-        .doc-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-            opacity: 0.5;
-            transition: opacity 0.3s;
-        }
-
-        .doc-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--neon-blue);
-            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
-        }
-
-        .doc-card:hover::before {
-            opacity: 1;
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--neon-blue);
-        }
-
-        .card-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .card-desc {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-
-        .card-meta {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: #64748b;
-            font-family: monospace;
-        }
-
-        .status-badge {
-            background: rgba(0, 243, 255, 0.1);
-            color: var(--neon-blue);
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            border: 1px solid rgba(0, 243, 255, 0.3);
-        }
-
-        .add-card {
-            border: 2px dashed rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
-            cursor: pointer;
-            background: transparent;
-        }
-
-        .add-card:hover {
-            border-color: var(--neon-purple);
-            color: var(--neon-purple);
-            background: rgba(189, 0, 255, 0.05);
-        }
-    </style>
 </head>
 
 <body>
-    <div class="background-blur" style="opacity: 0.3; top: -200px;"></div>
 
-    <a href="../index.html" class="back-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-        </svg>
-        Back to Dashboard
-    </a>
+    <p><a href="../index.html">&larr; Back to Main Index</a></p>
 
-    <div class="container">
-        <h1>Techfest Documents</h1>
-        <div class="subtitle">Secure Repository // Access Level: Admin</div>
+    <h1>Techfest Documents</h1>
 
-        <div class="docs-grid">
-            <!-- Proposal Card -->
-            <a href="project_nexus_proposal.html" class="doc-card">
-                <div class="card-icon">⚡</div>
-                <div class="card-title">Project Nexus Proposal</div>
-                <div class="card-desc">The masterplan for the interactive Cyber-Arcade event, including FestCoin economy
-                    and zones.</div>
-                <div class="card-meta">
-                    <span>V2.0</span>
-                    <span class="status-badge">Pending</span>
-                </div>
-            </a>
-
-            <!-- Placeholder for future docs -->
-            <div class="doc-card add-card">
-                <div style="font-size: 3rem; margin-bottom: 1rem;">+</div>
-                <div>Add New Document</div>
-            </div>
-        </div>
-    </div>
+    <ul>
+        <li>
+            <a href="project_nexus_proposal.html"><strong>Project Nexus Proposal (V2.0)</strong></a>
+            <br>
+            <em>The comprehensive event proposal including zones and coin economy.</em>
+        </li>
+    </ul>
 
 </body>
 
