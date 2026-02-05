@@ -156,6 +156,27 @@
       border:1px solid rgba(255,255,255,0.03);
     }
 
+    /* Quick action buttons */
+    .quick-actions{
+      display:flex;
+      gap:12px;
+      margin-bottom:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .action-btn{
+      flex: 1 1 220px;
+      padding:14px 18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.04);
+      background: linear-gradient(90deg, rgba(96,165,250,0.06), rgba(94,234,212,0.03));
+      color:var(--text);
+      font-weight:700;
+      text-align:center;
+      text-decoration:none;
+      display:inline-block;
+    }
+
     /* Cards grid */
     .grid{
       display:grid;
@@ -191,6 +212,7 @@
       .mobile-toggle{ display:inline-block; }
       .grid{ grid-template-columns: 1fr; }
       header{ align-items:flex-start; gap:8px; }
+      .quick-actions{ flex-direction:column; }
     }
 
     /* small utilities */
@@ -247,6 +269,17 @@
         </div>
       </section>
 
+      <!-- Quick actions for data types -->
+      <section aria-labelledby="quickActionsTitle">
+        <h3 id="quickActionsTitle" style="margin:0 0 10px 0;">Quick actions</h3>
+        <p class="small" style="margin:0 0 12px 0;">Open templated views for different data sets.</p>
+
+        <div class="quick-actions">
+          <a class="action-btn" href="#trip-data" id="tripDataBtn">Open Trip-based Data</a>
+          <a class="action-btn" href="#techfest-data" id="techfestDataBtn">Open TechFest Data</a>
+        </div>
+      </section>
+
       <section id="features" aria-labelledby="featuresTitle" style="margin-bottom:20px;">
         <h2 id="featuresTitle" style="margin:0 0 12px 0;">Core features</h2>
         <p class="muted" style="margin:0 0 16px 0;">Essential features surfaced clearly — no clutter.</p>
@@ -278,6 +311,35 @@
           <div class="card"><h3>Road trip</h3><p class="small">Daily legs, stops, and key contacts for long drives.</p></div>
         </div>
       </section>
+
+      <!-- Trip-based data template -->
+      <section id="trip-data" aria-labelledby="tripDataTitle" style="margin-top:18px;">
+        <h2 id="tripDataTitle">Trip-based Data</h2>
+        <p class="muted">Use this template to quickly create trip-specific notes and checklists.</p>
+        <div class="card" style="margin-top:12px;">
+          <h3>New Trip</h3>
+          <p class="small">Title, dates, destinations, reservations, and a packing checklist.</p>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="action-btn" onclick="alert('Create Trip action')">Create Trip</button>
+            <button class="action-btn" onclick="alert('Load Trip template')">Load Template</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TechFest-based data template -->
+      <section id="techfest-data" aria-labelledby="techfestDataTitle" style="margin-top:18px;">
+        <h2 id="techfestDataTitle">TechFest Data</h2>
+        <p class="muted">Templates tailored for conferences, meetups, and tech events.</p>
+        <div class="card" style="margin-top:12px;">
+          <h3>TechFest Plan</h3>
+          <p class="small">Speakers, schedule, booths, contacts, and gear checklist.</p>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="action-btn" onclick="alert('Create TechFest action')">Create TechFest</button>
+            <button class="action-btn" onclick="alert('Load TechFest template')">Load Template</button>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer role="contentinfo">
@@ -286,7 +348,7 @@
   </div>
 
   <script>
-    // Small mobile menu toggle with accessibility
+    // Small mobile menu toggle with accessibility and button handlers
     (function(){
       const btn = document.getElementById('menuToggle');
       const menu = document.getElementById('mobileMenu');
@@ -304,6 +366,32 @@
           menu.setAttribute('aria-hidden', 'false');
         }
       });
+
+      // Attach quick action behaviors
+      const tripBtn = document.getElementById('tripDataBtn');
+      const techBtn = document.getElementById('techfestDataBtn');
+
+      if (tripBtn) tripBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Scroll to the trip-data section and focus first button
+        const target = document.getElementById('trip-data');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const focusBtn = target.querySelector('button');
+          if (focusBtn) focusBtn.focus();
+        }
+      });
+
+      if (techBtn) techBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById('techfest-data');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const focusBtn = target.querySelector('button');
+          if (focusBtn) focusBtn.focus();
+        }
+      });
+
     })();
   </script>
 </body>
