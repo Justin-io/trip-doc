@@ -3,21 +3,399 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Trip Documents Index</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Documentation Index</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --accent-trip: #4299e1;
+            --accent-tech: #ed8936;
+            --zone-red: #fc8181;
+            --zone-purple: #b794f4;
+            --zone-green: #68d391;
+            --zone-blue: #63b3ed;
+            --zone-yellow: #f6e05e;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            color: #1a202c;
+            letter-spacing: -0.025em;
+        }
+
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr 1.5fr;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            grid-gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 24px;
+            height: fit-content;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: baseline;
+            transition: all 0.2s ease;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid transparent;
+        }
+
+        a:hover {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            transform: translateX(4px);
+        }
+
+        /* Trip Specifics */
+        .trip-link:hover {
+            border-left-color: var(--accent-trip);
+        }
+
+        .trip-number {
+            font-weight: 600;
+            margin-right: 12px;
+            color: #a0aec0;
+            font-size: 0.9em;
+            width: 20px;
+        }
+
+        .trip-desc {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-left: auto;
+        }
+
+        /* Techfest Specifics */
+        .tech-group {
+            margin-bottom: 24px;
+        }
+
+        .tech-group-title {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
+        }
+
+        .tech-item {
+            font-size: 0.95rem;
+            padding: 8px 12px;
+            background: #f7fafc;
+            border-radius: 6px;
+            border: 1px solid #edf2f7;
+            transition: all 0.2s;
+        }
+
+        .tech-item:hover {
+            background: white;
+            border-color: #cbd5e0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+            z-index: 10;
+        }
+
+        .zone-a .tech-item {
+            border-left: 3px solid var(--zone-red);
+        }
+
+        .zone-b .tech-item {
+            border-left: 3px solid var(--zone-purple);
+        }
+
+        .zone-c .tech-item {
+            border-left: 3px solid var(--zone-green);
+        }
+
+        .zone-d .tech-item {
+            border-left: 3px solid var(--zone-blue);
+        }
+
+        .zone-e .tech-item {
+            border-left: 3px solid var(--zone-yellow);
+        }
+
+        .master-proposal-btn {
+            display: block;
+            text-align: center;
+            background: #2d3748;
+            color: white;
+            font-weight: 600;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .master-proposal-btn:hover {
+            background: #1a202c;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="container">
-        <h1>Documentation Index</h1>
+        <header>
+            <h1>Central Documentation Index</h1>
+            <p class="subtitle">Gateway to Trip Administration & Techfest Project Nexus</p>
+        </header>
 
-        <h2>Folders</h2>
-        <ul>
-            <li><a href="trip/index.html"><strong>Trip Documents</strong></a> (Permissions, Student Lists, etc.)</li>
-            <li><a href="techfest/index.html"><strong>Techfest Documents</strong></a> (Proposals, Plans)</li>
-        </ul>
+        <div class="main-grid">
 
+            <!-- LEFT COLUMN: TRIP DOCS -->
+            <section class="card">
+                <div class="section-header">
+                    <span class="section-icon">🚌</span>
+                    <h2 style="color: var(--accent-trip);">Trip Administration</h2>
+                </div>
+
+                <p style="margin-bottom: 20px; font-size: 0.95rem; color: #718096;">
+                    Documents for permissions, student lists, and official requests.
+                </p>
+
+                <ul>
+                    <li>
+                        <a href="trip/general_secretary_permission_letter.html" class="trip-link">
+                            <span class="trip-number">01</span>
+                            Permissions Request (Gen. Sec)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/principal_permission_letter.html" class="trip-link">
+                            <span class="trip-number">02</span>
+                            Principal Request Letter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/approval_request_to_joint_director.html" class="trip-link">
+                            <span class="trip-number">03</span>
+                            Joint Director Approval
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/tour_summary.html" class="trip-link">
+                            <span class="trip-number">04</span>
+                            Proposal Summary
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/student_list.html" class="trip-link">
+                            <span class="trip-number">05</span>
+                            Detailed Student List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/student_name_list.html" class="trip-link">
+                            <span class="trip-number">06</span>
+                            Simple Name List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/company_certificate_format.html" class="trip-link">
+                            <span class="trip-number">07</span>
+                            Certificate Format
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/malayalam_checklist.html" class="trip-link">
+                            <span class="trip-number">08</span>
+                            Checklist (Malayalam)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/declaration.html" class="trip-link">
+                            <span class="trip-number">09</span>
+                            Student Declaration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/industrial_visit_email.html" class="trip-link">
+                            <span class="trip-number">10</span>
+                            IV Email Draft
+                        </a>
+                    </li>
+                    <li>
+                        <a href="trip/fee_undertaking_request.html" class="trip-link">
+                            <span class="trip-number">11</span>
+                            Fee Undertaking
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- RIGHT COLUMN: TECHFEST -->
+            <section class="card">
+                <div class="section-header">
+                    <span class="section-icon">🚀</span>
+                    <h2 style="color: var(--accent-tech);">Project Nexus (Techfest)</h2>
+                </div>
+
+                <a href="techfest/project_nexus_proposal.html" class="master-proposal-btn">
+                    View Master Proposal & Logic Economy
+                </a>
+
+                <div class="tech-group zone-a">
+                    <div class="tech-group-title" style="color: #c53030;">
+                        <span class="dot" style="background: var(--zone-red);"></span> Zone A: Competitive Gaming
+                    </div>
+                    <div class="tech-grid">
+                        <a href="techfest/projects/zone_a_deadshot.html" class="tech-item">Deadshot.io</a>
+                    </div>
+                </div>
+
+                <div class="tech-group zone-b">
+                    <div class="tech-group-title" style="color: #805ad5;">
+                        <span class="dot" style="background: var(--zone-purple);"></span> Zone B: The Arcade (AI)
+                    </div>
+                    <div class="tech-grid">
+                        <a href="techfest/projects/zone_a_flappy.html" class="tech-item">Nose-Nav Flappy</a>
+                        <a href="techfest/projects/zone_a_cloak.html" class="tech-item">Invisible Cloak</a>
+                        <a href="techfest/projects/arcade_celebrity.html" class="tech-item">Celeb Match</a>
+                        <a href="techfest/projects/arcade_troll.html" class="tech-item">Troll Bot</a>
+                        <a href="techfest/projects/zone_c_sonic.html" class="tech-item">Sonic AI Music</a>
+                        <a href="techfest/projects/zone_c_ai_art.html" class="tech-item">AI Artist</a>
+                        <a href="techfest/projects/arcade_lookmax.html" class="tech-item">Lookmax AI</a>
+                        <a href="techfest/projects/arcade_voice.html" class="tech-item">Voice Clone</a>
+                        <a href="techfest/projects/arcade_nn.html" class="tech-item">Neural Net Viz</a>
+                        <a href="techfest/projects/arcade_agentic.html" class="tech-item">Agentic Arena</a>
+                    </div>
+                </div>
+
+                <div class="tech-group zone-c">
+                    <div class="tech-group-title" style="color: #2f855a;">
+                        <span class="dot" style="background: var(--zone-green);"></span> Zone C: Cyber-Gym
+                    </div>
+                    <div class="tech-grid">
+                        <a href="techfest/projects/zone_b_password.html" class="tech-item">Password Strength</a>
+                        <a href="techfest/projects/cyber_wifi.html" class="tech-item">WiFi Phishing</a>
+                        <a href="techfest/projects/cyber_bluetooth.html" class="tech-item">BT Flooding</a>
+                        <a href="techfest/projects/cyber_osint.html" class="tech-item">Email My-OSINT</a>
+                        <a href="techfest/projects/cyber_rat.html" class="tech-item">Malware RAT</a>
+                        <a href="techfest/projects/cyber_darkweb.html" class="tech-item">Dark Web Tour</a>
+                        <a href="techfest/projects/cyber_ig.html" class="tech-item">IG Clout Rater</a>
+                    </div>
+                </div>
+
+                <div class="tech-group zone-d">
+                    <div class="tech-group-title" style="color: #2b6cb0;">
+                        <span class="dot" style="background: var(--zone-blue);"></span> Zone D: Speed Runs
+                    </div>
+                    <div class="tech-grid">
+                        <a href="techfest/projects/zone_d_sprint.html" class="tech-item">15 Min Coding</a>
+                        <a href="techfest/projects/sprint_web.html" class="tech-item">Instant Website</a>
+                        <a href="techfest/projects/sprint_handbook.html" class="tech-item">Handbooks</a>
+                    </div>
+                </div>
+
+                <div class="tech-group zone-e">
+                    <div class="tech-group-title" style="color: #d69e2e;">
+                        <span class="dot" style="background: var(--zone-yellow);"></span> Zone E: Infra & Sessions
+                    </div>
+                    <div class="tech-grid">
+                        <a href="techfest/projects/infra_coins.html" class="tech-item">Coin System</a>
+                        <a href="techfest/projects/zone_d_iot.html" class="tech-item">Water Dispenser</a>
+                        <a href="techfest/sessions/cyber_security_curriculum.html" class="tech-item">Cyber Sec
+                            Session</a>
+                        <a href="techfest/sessions/data_science_curriculum.html" class="tech-item">Data Sci Session</a>
+                        <a href="techfest/sessions/iot_curriculum.html" class="tech-item">IoT Session</a>
+                    </div>
+                </div>
+
+            </section>
+        </div>
     </div>
 
 </body>
