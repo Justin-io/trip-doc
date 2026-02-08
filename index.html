@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -398,6 +398,88 @@
         </div>
     </div>
 
+    <main>
+        <section class="hero" aria-labelledby="heroTitle">
+            <div class="copy">
+                <h2 id="heroTitle">Plan quickly. Travel calmly.</h2>
+                <p>Create lightweight trip documentation, checklists, and shared notes — all in one clean view. Minimal
+                    UI so you focus on the trip, not the tool.</p>
+                <div class="actions">
+                    <a class="cta" href="#get-started">Create a trip</a>
+                    <a class="btn btn-ghost" href="#examples">See examples</a>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                Simple • Fast • Portable
+            </div>
+        </section>
+
+        <section id="features" aria-labelledby="featuresTitle" style="margin-bottom:20px;">
+            <h2 id="featuresTitle" style="margin:0 0 12px 0;">Core features</h2>
+            <p class="muted" style="margin:0 0 16px 0;">Essential features surfaced clearly — no clutter.</p>
+
+            <div class="grid" role="list">
+                <div class="card" role="listitem">
+                    <h3>Trip notes</h3>
+                    <p>Keep itinerary, reservations, and notes in one place. Lightweight editor, easy copy/paste.</p>
+                </div>
+
+                <div class="card" role="listitem">
+                    <h3>Checklists</h3>
+                    <p>Create packing lists or pre-trip checklists. Reuse lists between trips.</p>
+                </div>
+
+                <div class="card" role="listitem">
+                    <h3>Share & export</h3>
+                    <p>Share a trip URL or export a clean printable view for offline use.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" aria-labelledby="examplesTitle" style="margin-bottom:8px;">
+            <h2 id="examplesTitle">Example trips</h2>
+            <p class="small">A few sample layouts to get started quickly.</p>
+
+            <div style="display:grid;gap:12px;margin-top:12px;">
+                <div class="card">
+                    <h3>Weekend city break</h3>
+                    <p class="small">Short checklist, reservations, and places to visit.</p>
+                </div>
+                <div class="card">
+                    <h3>Road trip</h3>
+                    <p class="small">Daily legs, stops, and key contacts for long drives.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="small">Made with care • © <span id="year"></span> Trip Doc</div>
+    </footer>
+    </div>
+
+    <script>
+        // Small mobile menu toggle with accessibility
+        (function () {
+            const btn = document.getElementById('menuToggle');
+            const menu = document.getElementById('mobileMenu');
+            const yearEl = document.getElementById('year');
+            yearEl.textContent = new Date().getFullYear();
+
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!expanded));
+                if (expanded) {
+                    menu.style.display = 'none';
+                    menu.setAttribute('aria-hidden', 'true');
+                } else {
+                    menu.style.display = 'block';
+                    menu.setAttribute('aria-hidden', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
